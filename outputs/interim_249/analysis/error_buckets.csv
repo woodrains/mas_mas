@@ -1,0 +1,11 @@
+method,task_type,failure_reason,count
+random,gsm8k,parse_failure,1
+random,gsm8k,wrong_answer,11
+random,humaneval,runtime_error,4
+random,humaneval,syntax_error,7
+random,humaneval,wrong_answer,3
+cost_first,gsm8k,parse_failure,1
+cost_first,gsm8k,wrong_answer,5
+cost_first,humaneval,runtime_error,2
+cost_first,humaneval,syntax_error,3
+cost_first,humaneval,wrong_answer,1

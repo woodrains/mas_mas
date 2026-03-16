@@ -1,0 +1,98 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/119",
+  "task_type": "humaneval",
+  "worker_id": "deepseek_r1",
+  "model": "deepseek/deepseek-r1-0528",
+  "worker_role": "reasoning_specialist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 8192,
+    "reasoning": {
+      "enabled": true,
+      "exclude": true
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef match_parens(lst):\n    '''\n    You are given a list of two strings, both strings consist of open\n    parentheses '(' or close parentheses ')' only.\n    Your job is to check if it is possible to concatenate the two strings in\n    some order, that the resulting string will be good.\n    A string S is considered to be good if and only if all parentheses in S\n    are balanced. For example: the string '(())()' is good, while the string\n    '())' is not.\n    Return 'Yes' if there's a way to make a good string, and return 'No' otherwise.\n\n    Examples:\n    match_parens(['()(', ')']) == 'Yes'\n    match_parens([')', ')']) == 'No'\n    '''\n"
+    }
+  ],
+  "request_id": "gen-1773653293-wScnlpVeuug8mluU9owD",
+  "response_text": "",
+  "usage": {
+    "prompt_tokens": 241,
+    "completion_tokens": 8192,
+    "total_tokens": 8433
+  },
+  "latency_ms": 306452,
+  "cost_usd": 0.017721249999999997,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.017721249999999997,
+  "raw_response": {
+    "id": "gen-1773653293-wScnlpVeuug8mluU9owD",
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": null,
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "length"
+      }
+    ],
+    "created": 1773653293,
+    "model": "deepseek/deepseek-r1-0528",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 8192,
+      "prompt_tokens": 241,
+      "total_tokens": 8433,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 8730,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0198536,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0198536,
+        "upstream_inference_prompt_cost": 0.0001928,
+        "upstream_inference_completions_cost": 0.0196608
+      }
+    },
+    "provider": "Nebius"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": false,
+    "failure_reason": "runtime_error",
+    "format_ok": true
+  }
+}

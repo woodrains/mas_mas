@@ -1,0 +1,48 @@
+workers:
+  - worker_id: haiku45
+    model: anthropic/claude-haiku-4.5
+    role: high_quality_generalist
+    price_usd_per_m_input: 1.0
+    price_usd_per_m_output: 5.0
+    params:
+      temperature: 0.2
+      top_p: 0.95
+      max_tokens: 4096
+      reasoning:
+        max_tokens: 1536
+        exclude: true
+  - worker_id: gemini25flash
+    model: google/gemini-2.5-flash
+    role: long_context_workhorse
+    price_usd_per_m_input: 0.30
+    price_usd_per_m_output: 2.50
+    params:
+      temperature: 0.2
+      top_p: 0.95
+      max_tokens: 4096
+      reasoning:
+        effort: low
+        exclude: true
+  - worker_id: deepseek_r1
+    model: deepseek/deepseek-r1-0528
+    role: reasoning_specialist
+    price_usd_per_m_input: 0.45
+    price_usd_per_m_output: 2.15
+    params:
+      temperature: 0.2
+      top_p: 0.95
+      max_tokens: 8192
+      reasoning:
+        enabled: true
+        exclude: true
+  - worker_id: qwen3_235b
+    model: qwen/qwen3-235b-a22b-2507
+    role: low_cost_generalist
+    price_usd_per_m_input: 0.071
+    price_usd_per_m_output: 0.10
+    params:
+      temperature: 0.2
+      top_p: 0.95
+      max_tokens: 3072
+      reasoning:
+        enabled: false

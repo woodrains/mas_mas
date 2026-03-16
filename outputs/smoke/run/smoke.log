@@ -1,0 +1,2 @@
+[resume] method=ours completed_tasks=1
+Running ours:   0%|          | 0/7 [00:00<?, ?it/s]Running ours:  14%|█▍        | 1/7 [01:00<06:04, 60.83s/it]Running ours:  29%|██▊       | 2/7 [01:35<03:48, 45.65s/it]

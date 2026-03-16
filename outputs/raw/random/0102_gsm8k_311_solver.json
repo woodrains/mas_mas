@@ -1,0 +1,147 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_311",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nIn a family of 5, three people eat three eggs each day while the rest eat two eggs each day. If they eat eggs every day, how many eggs will the family consume in a week?"
+    }
+  ],
+  "request_id": "gen-1773655236-Wkt4Cs1OGkL8vG89Evj8",
+  "response_text": "**Problem Setup:**\n- Family of 5 people\n- 3 people eat 3 eggs each per day\n- 2 people eat 2 eggs each per day (the rest: 5 - 3 = 2)\n- They eat every day for a week\n\n**Daily Consumption:**\n- 3 people × 3 eggs = 9 eggs\n- 2 people × 2 eggs = 4 eggs\n- Total per day = 9 + 4 = 13 eggs\n\n**Weekly Consumption:**\n- 13 eggs/day × 7 days = 91 eggs\n\nFINAL: 91",
+  "usage": {
+    "prompt_tokens": 175,
+    "completion_tokens": 289,
+    "total_tokens": 464
+  },
+  "latency_ms": 3793,
+  "cost_usd": 0.00162,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.00162,
+  "raw_response": {
+    "id": "gen-1773655236-Wkt4Cs1OGkL8vG89Evj8",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Problem Setup:**\n- Family of 5 people\n- 3 people eat 3 eggs each per day\n- 2 people eat 2 eggs each per day (the rest: 5 - 3 = 2)\n- They eat every day for a week\n\n**Daily Consumption:**\n- 3 people × 3 eggs = 9 eggs\n- 2 people × 2 eggs = 4 eggs\n- Total per day = 9 + 4 = 13 eggs\n\n**Weekly Consumption:**\n- 13 eggs/day × 7 days = 91 eggs\n\nFINAL: 91",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773655236,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 289,
+      "prompt_tokens": 175,
+      "total_tokens": 464,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 83,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.00162,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00162,
+        "upstream_inference_prompt_cost": 0.000175,
+        "upstream_inference_completions_cost": 0.001445
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T10:00:36.48Z",
+      "model": "anthropic/claude-4.5-haiku-20251001",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1978,
+      "moderation_latency": 404,
+      "generation_time": 2736,
+      "tokens_prompt": 140,
+      "tokens_completion": 183,
+      "native_tokens_prompt": 175,
+      "native_tokens_completion": 289,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 83,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost:8000/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.00162,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "d000261c-5aeb-47d1-ac87-ad64dbe1cdb6",
+          "id": "f2a8a69e-abd8-4ddc-a1b2-d2fc29dacb08",
+          "is_byok": false,
+          "latency": 1402,
+          "model_permaslug": "anthropic/claude-4.5-haiku-20251001",
+          "provider_name": "Amazon Bedrock",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773655236-Wkt4Cs1OGkL8vG89Evj8",
+      "upstream_id": "f2a8a69e-abd8-4ddc-a1b2-d2fc29dacb08",
+      "total_cost": 0.00162,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Amazon Bedrock"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

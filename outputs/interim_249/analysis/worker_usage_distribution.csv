@@ -1,0 +1,6 @@
+method,worker_id,usage_ratio
+random,deepseek_r1,0.2289156626506024
+random,gemini25flash,0.26104417670682734
+random,haiku45,0.26104417670682734
+random,qwen3_235b,0.24899598393574296
+cost_first,qwen3_235b,1.0

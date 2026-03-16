@@ -1,0 +1,155 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_122",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nSadie slept 8 hours on Monday. For the next two days, she slept 2 hours less, each, because she had to complete some assignments. If the rest of the week she slept 1 hour more than those two days, how many hours did she sleep in total throughout the week?"
+    }
+  ],
+  "request_id": "gen-1773654913-bAOMgEzJw5Hr5Rr71wmd",
+  "response_text": "On Monday, Sadie slept 8 hours.\n\nFor the next two days (Tuesday and Wednesday), she slept 2 hours less than Monday each day:\n8 - 2 = 6 hours per night.\nSo for Tuesday and Wednesday: 6 × 2 = 12 hours.\n\nFor the rest of the week (Thursday, Friday, Saturday, Sunday), she slept 1 hour more than the previous two days (i.e., 6 + 1 = 7 hours per night).\nThere are 4 days: 7 × 4 = 28 hours.\n\nNow, total sleep for the week:\nMonday: 8  \nTuesday & Wednesday: 12  \nThursday to Sunday: 28  \nTotal = 8 + 12 + 28 = 48 hours.\n\nFINAL: 48",
+  "usage": {
+    "prompt_tokens": 158,
+    "completion_tokens": 171,
+    "total_tokens": 329
+  },
+  "latency_ms": 8337,
+  "cost_usd": 2.8318000000000002e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.8318000000000002e-05,
+  "raw_response": {
+    "id": "gen-1773654913-bAOMgEzJw5Hr5Rr71wmd",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "On Monday, Sadie slept 8 hours.\n\nFor the next two days (Tuesday and Wednesday), she slept 2 hours less than Monday each day:\n8 - 2 = 6 hours per night.\nSo for Tuesday and Wednesday: 6 × 2 = 12 hours.\n\nFor the rest of the week (Thursday, Friday, Saturday, Sunday), she slept 1 hour more than the previous two days (i.e., 6 + 1 = 7 hours per night).\nThere are 4 days: 7 × 4 = 28 hours.\n\nNow, total sleep for the week:\nMonday: 8  \nTuesday & Wednesday: 12  \nThursday to Sunday: 28  \nTotal = 8 + 12 + 28 = 48 hours.\n\nFINAL: 48",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773654913,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 171,
+      "prompt_tokens": 158,
+      "total_tokens": 329,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 5,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.00018524,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00018524,
+        "upstream_inference_prompt_cost": 3.476e-05,
+        "upstream_inference_completions_cost": 0.00015048
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T09:55:13.553Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1370,
+      "moderation_latency": null,
+      "generation_time": 1915,
+      "tokens_prompt": 161,
+      "tokens_completion": 143,
+      "native_tokens_prompt": 158,
+      "native_tokens_completion": 171,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 5,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost:8000/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.00018524,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "3e3e2284-a12c-46b5-b3db-bc4eb148c7d9",
+          "is_byok": false,
+          "latency": 242,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "DeepInfra",
+          "status": null
+        },
+        {
+          "endpoint_id": "5369c603-15de-42f2-95d3-1e9559206ff9",
+          "id": "iNO3ae3JE5Oj3_kP48HmkQc",
+          "is_byok": false,
+          "latency": 1370,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773654913-bAOMgEzJw5Hr5Rr71wmd",
+      "upstream_id": "iNO3ae3JE5Oj3_kP48HmkQc",
+      "total_cost": 0.00018524,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

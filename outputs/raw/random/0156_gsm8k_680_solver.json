@@ -1,0 +1,98 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_680",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nThe elevator in Jack's building supports a maximum load of 700 kg. An adult weighs an average of 80 kg. If Jack rides the elevator with 8 other adults, by how much will they have exceeded the maximum load of the elevator?"
+    }
+  ],
+  "request_id": "gen-1773656515-GO6gJ0u72id7Vf7fhGST",
+  "response_text": "**Solution:**\n\nLet me work through this step by step:\n\n1. **Number of people in the elevator:**\n   - Jack + 8 other adults = 9 people total\n\n2. **Total weight:**\n   - 9 people × 80 kg per person = 720 kg\n\n3. **Amount exceeded:**\n   - Total weight - Maximum capacity\n   - 720 kg - 700 kg = 20 kg\n\nFINAL: 20",
+  "usage": {
+    "prompt_tokens": 188,
+    "completion_tokens": 289,
+    "total_tokens": 477
+  },
+  "latency_ms": 3835,
+  "cost_usd": 0.001633,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.001633,
+  "raw_response": {
+    "id": "gen-1773656515-GO6gJ0u72id7Vf7fhGST",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Solution:**\n\nLet me work through this step by step:\n\n1. **Number of people in the elevator:**\n   - Jack + 8 other adults = 9 people total\n\n2. **Total weight:**\n   - 9 people × 80 kg per person = 720 kg\n\n3. **Amount exceeded:**\n   - Total weight - Maximum capacity\n   - 720 kg - 700 kg = 20 kg\n\nFINAL: 20",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773656515,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 289,
+      "prompt_tokens": 188,
+      "total_tokens": 477,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 135,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001633,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001633,
+        "upstream_inference_prompt_cost": 0.000188,
+        "upstream_inference_completions_cost": 0.001445
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

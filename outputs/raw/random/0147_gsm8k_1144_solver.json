@@ -1,0 +1,98 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1144",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nThe ratio of men to women on a bus is 5:9. If the total number of passengers on the bus is 84, and 20 women alight from the bus at the next stop, how many women have remained on the bus?"
+    }
+  ],
+  "request_id": "gen-1773656379-Ofn6l7s8icUV2NoLn1Nv",
+  "response_text": "**Solution:**\n\nGiven information:\n- Ratio of men to women = 5:9\n- Total passengers = 84\n- Women who alight = 20\n\n**Step 1: Find the number of women initially on the bus**\n\nThe ratio 5:9 means the total is divided into 5 + 9 = 14 parts.\n\nWomen represent 9 parts out of 14 total parts.\n\nNumber of women = (9/14) × 84 = 9 × 6 = 54\n\n**Step 2: Calculate women remaining after 20 alight**\n\nWomen remaining = 54 - 20 = 34\n\nFINAL: 34",
+  "usage": {
+    "prompt_tokens": 186,
+    "completion_tokens": 365,
+    "total_tokens": 551
+  },
+  "latency_ms": 6299,
+  "cost_usd": 0.0020109999999999998,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0020109999999999998,
+  "raw_response": {
+    "id": "gen-1773656379-Ofn6l7s8icUV2NoLn1Nv",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Solution:**\n\nGiven information:\n- Ratio of men to women = 5:9\n- Total passengers = 84\n- Women who alight = 20\n\n**Step 1: Find the number of women initially on the bus**\n\nThe ratio 5:9 means the total is divided into 5 + 9 = 14 parts.\n\nWomen represent 9 parts out of 14 total parts.\n\nNumber of women = (9/14) × 84 = 9 × 6 = 54\n\n**Step 2: Calculate women remaining after 20 alight**\n\nWomen remaining = 54 - 20 = 34\n\nFINAL: 34",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773656379,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 365,
+      "prompt_tokens": 186,
+      "total_tokens": 551,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 128,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.002011,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.002011,
+        "upstream_inference_prompt_cost": 0.000186,
+        "upstream_inference_completions_cost": 0.001825
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_109",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nA local gas station is selling gas for $3.00 a gallon.  An app company is offering $.20 cashback per gallon if you fill up at this station.  If someone buys 10 gallons of gas, how much with their gas be, after the cashback rewards?"
+    }
+  ],
+  "request_id": "gen-1773653689-Q07RxwAU5NZCRqfrZcVt",
+  "response_text": "The cost of gas per gallon is $3.00.  \nThe customer buys 10 gallons, so the total cost before cashback is:  \n10 × $3.00 = $30.00  \n\nThe app offers $0.20 cashback per gallon.  \nFor 10 gallons, the total cashback is:  \n10 × $0.20 = $2.00  \n\nSubtracting the cashback from the total cost:  \n$30.00 − $2.00 = $28.00  \n\nFINAL: 28.00",
+  "usage": {
+    "prompt_tokens": 158,
+    "completion_tokens": 131,
+    "total_tokens": 289
+  },
+  "latency_ms": 1989,
+  "cost_usd": 2.4318e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.4318e-05,
+  "raw_response": {
+    "id": "gen-1773653689-Q07RxwAU5NZCRqfrZcVt",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "The cost of gas per gallon is $3.00.  \nThe customer buys 10 gallons, so the total cost before cashback is:  \n10 × $3.00 = $30.00  \n\nThe app offers $0.20 cashback per gallon.  \nFor 10 gallons, the total cashback is:  \n10 × $0.20 = $2.00  \n\nSubtracting the cashback from the total cost:  \n$30.00 − $2.00 = $28.00  \n\nFINAL: 28.00",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773653689,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 131,
+      "prompt_tokens": 158,
+      "total_tokens": 289,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0001364,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001364,
+        "upstream_inference_prompt_cost": 3.16e-05,
+        "upstream_inference_completions_cost": 0.0001048
+      }
+    },
+    "provider": "Friendli"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T09:34:49.123Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 303,
+      "moderation_latency": null,
+      "generation_time": 1398,
+      "tokens_prompt": 155,
+      "tokens_completion": 92,
+      "native_tokens_prompt": 158,
+      "native_tokens_completion": 131,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost:8000/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.0001364,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "02b90f2a-e684-46b3-808b-eb88e1348e29",
+          "id": "chatcmpl-20c210fd882b4fcca72c1a550a972440",
+          "is_byok": false,
+          "latency": 303,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Friendli",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773653689-Q07RxwAU5NZCRqfrZcVt",
+      "upstream_id": "chatcmpl-20c210fd882b4fcca72c1a550a972440",
+      "total_cost": 0.0001364,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Friendli"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": false,
+    "failure_reason": "wrong_answer",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,62 @@
+experiment:
+  seed: 20260315
+  total_tasks: 500
+  n_humaneval: 164
+  n_gsm8k: 336
+  fixed_single_best_worker: gemini25flash
+  enable_decomposition: true
+  task_stream_path: data/processed/task_stream_seed20260315.jsonl
+  combined_csv_path: outputs/smoke/logs/runs.csv
+  combined_jsonl_path: outputs/smoke/logs/runs.jsonl
+
+execution:
+  resume: true
+  chunk_size: 4
+  max_consecutive_request_failures: 1
+  save_raw_outputs: true
+
+router:
+  use_sbert: false
+  sbert_model: sentence-transformers/all-MiniLM-L6-v2
+  warmup_steps: 40
+  epsilon_warmup: 0.20
+  epsilon_after: 0.10
+  alpha: 1.0
+  beta: 0.15
+  gamma: 0.05
+  delta: 0.10
+  ucb_k: 1.0
+  ema_decay: 0.95
+  stability_window: 50
+  decomp_threshold: 0.55
+  forget_decay: 1.0
+
+perturbation:
+  enabled: true
+  trigger_t: 250
+  target_worker: deepseek_r1
+  max_tokens_after: 2048
+  reasoning_after:
+    enabled: false
+    exclude: true
+  router_forget_decay_after: 0.98
+
+humaneval:
+  executor: docker
+  docker_image: python:3.11-slim
+  timeout_s: 5
+  memory: 512m
+  cpus: "1.0"
+  pids_limit: 64
+  tmp_dir: .cache/humaneval
+
+paths:
+  repo_root: /disk0/home/gaohaoyu/multi-agent-sys_2
+  hf_cache: /disk0/home/gaohaoyu/multi-agent-sys_2/.cache/huggingface
+  st_cache: /disk0/home/gaohaoyu/multi-agent-sys_2/.cache/sentence_transformers
+  mpl_cache: /disk0/home/gaohaoyu/multi-agent-sys_2/.cache/matplotlib
+  outputs_logs: /disk0/home/gaohaoyu/multi-agent-sys_2/outputs/smoke/logs
+  outputs_figs: /disk0/home/gaohaoyu/multi-agent-sys_2/outputs/smoke/figs
+  outputs_stats: /disk0/home/gaohaoyu/multi-agent-sys_2/outputs/smoke/stats
+  outputs_analysis: /disk0/home/gaohaoyu/multi-agent-sys_2/outputs/smoke/analysis
+  outputs_raw: /disk0/home/gaohaoyu/multi-agent-sys_2/outputs/smoke/raw

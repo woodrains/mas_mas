@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/158",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef find_max(words):\n    \"\"\"Write a function that accepts a list of strings.\n    The list contains different words. Return the word with maximum number\n    of unique characters. If multiple strings have maximum number of unique\n    characters, return the one which comes first in lexicographical order.\n\n    find_max([\"name\", \"of\", \"string\"]) == \"string\"\n    find_max([\"name\", \"enam\", \"game\"]) == \"enam\"\n    find_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"\"aaaaaaa\"\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773661587-oYo4L9i4P4NsKonaK3Ba",
+  "response_text": "def find_max(words):\n    max_unique = 0\n    result = \"\"\n    for word in words:\n        unique_count = len(set(word))\n        if unique_count > max_unique or (unique_count == max_unique and word < result):\n            max_unique = unique_count\n            result = word\n    return result",
+  "usage": {
+    "prompt_tokens": 194,
+    "completion_tokens": 65,
+    "total_tokens": 259
+  },
+  "latency_ms": 4875,
+  "cost_usd": 2.0274e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.0274e-05,
+  "raw_response": {
+    "id": "gen-1773661587-oYo4L9i4P4NsKonaK3Ba",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def find_max(words):\n    max_unique = 0\n    result = \"\"\n    for word in words:\n        unique_count = len(set(word))\n        if unique_count > max_unique or (unique_count == max_unique and word < result):\n            max_unique = unique_count\n            result = word\n    return result",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773661587,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 65,
+      "prompt_tokens": 194,
+      "total_tokens": 259,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 6.475e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 6.475e-05,
+        "upstream_inference_prompt_cost": 4.85e-05,
+        "upstream_inference_completions_cost": 1.625e-05
+      }
+    },
+    "provider": "Hyperbolic"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T11:46:27.72Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1350,
+      "moderation_latency": null,
+      "generation_time": 4469,
+      "tokens_prompt": 207,
+      "tokens_completion": 78,
+      "native_tokens_prompt": 194,
+      "native_tokens_completion": 65,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 6.475e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "9f410d50-030e-47bd-aba8-261035cd01e2",
+          "id": "obHQFta-3pDw3Z-9dd38480eeb6ff19",
+          "is_byok": false,
+          "latency": 1350,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Hyperbolic",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773661587-oYo4L9i4P4NsKonaK3Ba",
+      "upstream_id": "obHQFta-3pDw3Z-9dd38480eeb6ff19",
+      "total_cost": 6.475e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Hyperbolic"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

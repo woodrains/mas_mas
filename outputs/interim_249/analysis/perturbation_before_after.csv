@@ -1,0 +1,3 @@
+method,before_success,after_success,before_cost_usd,after_cost_usd,before_latency_ms,after_latency_ms,recovery_steps_to_95pct_pre
+random,0.8955823293172691,,0.0018700113333333123,,16454.775100401606,,
+cost_first,0.8032786885245902,,3.017718032786885e-05,,12601.672131147541,,

@@ -1,0 +1,155 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_320",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nAt the beginning of the party, there were 25 men and 15 women. After an hour, 1/4 of the total number of people left. How many women are left if 22 men stayed at the party?"
+    }
+  ],
+  "request_id": "gen-1773660495-lT3oAEKvMkC2BlEr6Wlw",
+  "response_text": "- Initial number of men: 25  \n- Initial number of women: 15  \n- Total number of people at the beginning: 25 + 15 = 40  \n\nAfter an hour, 1/4 of the total number of people left.  \nSo, number of people who left:  \n1/4 × 40 = 10  \n\nTherefore, number of people who stayed:  \n40 - 10 = 30  \n\nWe are told that 22 men stayed.  \nSo, number of women who stayed = total who stayed - men who stayed  \n= 30 - 22 = 8  \n\nFINAL: 8",
+  "usage": {
+    "prompt_tokens": 151,
+    "completion_tokens": 143,
+    "total_tokens": 294
+  },
+  "latency_ms": 34808,
+  "cost_usd": 2.5021000000000003e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.5021000000000003e-05,
+  "raw_response": {
+    "id": "gen-1773660495-lT3oAEKvMkC2BlEr6Wlw",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "- Initial number of men: 25  \n- Initial number of women: 15  \n- Total number of people at the beginning: 25 + 15 = 40  \n\nAfter an hour, 1/4 of the total number of people left.  \nSo, number of people who left:  \n1/4 × 40 = 10  \n\nTherefore, number of people who stayed:  \n40 - 10 = 30  \n\nWe are told that 22 men stayed.  \nSo, number of women who stayed = total who stayed - men who stayed  \n= 30 - 22 = 8  \n\nFINAL: 8",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773660495,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 143,
+      "prompt_tokens": 151,
+      "total_tokens": 294,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.5021e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.5021e-05,
+        "upstream_inference_prompt_cost": 1.0721e-05,
+        "upstream_inference_completions_cost": 1.43e-05
+      }
+    },
+    "provider": "DeepInfra"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T11:28:15.551Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 3593,
+      "moderation_latency": null,
+      "generation_time": 33642,
+      "tokens_prompt": 141,
+      "tokens_completion": 116,
+      "native_tokens_prompt": 151,
+      "native_tokens_completion": 143,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 2.5021e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "043eb28f-fc28-4b0d-9800-b249fcfcfbf9",
+          "is_byok": false,
+          "latency": 190,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Parasail",
+          "status": 429
+        },
+        {
+          "endpoint_id": "3e3e2284-a12c-46b5-b3db-bc4eb148c7d9",
+          "id": "chatcmpl-RSVqYtTTCjQ5DBu6ZNYcdjPV",
+          "is_byok": false,
+          "latency": 447,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "DeepInfra",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773660495-lT3oAEKvMkC2BlEr6Wlw",
+      "upstream_id": "chatcmpl-RSVqYtTTCjQ5DBu6ZNYcdjPV",
+      "total_cost": 2.5021e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "DeepInfra"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

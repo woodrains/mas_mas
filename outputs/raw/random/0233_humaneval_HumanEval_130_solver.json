@@ -1,0 +1,98 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/130",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef tri(n):\n    \"\"\"Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in \n    the last couple centuries. However, what people don't know is Tribonacci sequence.\n    Tribonacci sequence is defined by the recurrence:\n    tri(1) = 3\n    tri(n) = 1 + n / 2, if n is even.\n    tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.\n    For example:\n    tri(2) = 1 + (2 / 2) = 2\n    tri(4) = 3\n    tri(3) = tri(2) + tri(1) + tri(4)\n           = 2 + 3 + 3 = 8 \n    You are given a non-negative integer number n, you have to a return a list of the \n    first n + 1 numbers of the Tribonacci sequence.\n    Examples:\n    tri(3) = [1, 3, 2, 8]\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773658664-HXgykTrd8bFHOl666x10",
+  "response_text": "def tri(n):\n    if n == 0:\n        return [1]\n    \n    result = [1] * (n + 1)\n    result[1] = 3\n    \n    for i in range(2, n + 1):\n        if i % 2 == 0:\n            result[i] = 1 + i // 2\n        else:\n            # For odd i, we need tri(i-1), tri(i-2), and tri(i+1)\n            # But tri(i+1) is not computed yet, so we need to adjust the recurrence\n            # Looking at the example: tri(3) = tri(2) + tri(1) + tri(4)\n            # tri(4) is computed as 1 + 4//2 = 3\n            # So for odd i, tri(i) = tri(i-1) + tri(i-2) + (1 + (i+1)//2) if i+1 is even\n            # Since i is odd, i+1 is even, so tri(i+1) = 1 + (i+1)//2\n            if i + 1 <= n:\n                # We can compute tri(i+1) if needed\n                temp_next = 1 + (i + 1) // 2\n            else:\n                temp_next = 1 + (i + 1) // 2  # This formula holds for even i+1\n            result[i] = result[i-1] + result[i-2] + temp_next\n    \n    return result",
+  "usage": {
+    "prompt_tokens": 309,
+    "completion_tokens": 332,
+    "total_tokens": 641
+  },
+  "latency_ms": 5235,
+  "cost_usd": 5.5139e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 5.5139e-05,
+  "raw_response": {
+    "id": "gen-1773658664-HXgykTrd8bFHOl666x10",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def tri(n):\n    if n == 0:\n        return [1]\n    \n    result = [1] * (n + 1)\n    result[1] = 3\n    \n    for i in range(2, n + 1):\n        if i % 2 == 0:\n            result[i] = 1 + i // 2\n        else:\n            # For odd i, we need tri(i-1), tri(i-2), and tri(i+1)\n            # But tri(i+1) is not computed yet, so we need to adjust the recurrence\n            # Looking at the example: tri(3) = tri(2) + tri(1) + tri(4)\n            # tri(4) is computed as 1 + 4//2 = 3\n            # So for odd i, tri(i) = tri(i-1) + tri(i-2) + (1 + (i+1)//2) if i+1 is even\n            # Since i is odd, i+1 is even, so tri(i+1) = 1 + (i+1)//2\n            if i + 1 <= n:\n                # We can compute tri(i+1) if needed\n                temp_next = 1 + (i + 1) // 2\n            else:\n                temp_next = 1 + (i + 1) // 2  # This formula holds for even i+1\n            result[i] = result[i-1] + result[i-2] + temp_next\n    \n    return result",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773658664,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 332,
+      "prompt_tokens": 309,
+      "total_tokens": 641,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0003274,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0003274,
+        "upstream_inference_prompt_cost": 6.18e-05,
+        "upstream_inference_completions_cost": 0.0002656
+      }
+    },
+    "provider": "Friendli"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

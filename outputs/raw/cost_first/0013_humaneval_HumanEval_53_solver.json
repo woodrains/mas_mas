@@ -1,0 +1,147 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/53",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\n\ndef add(x: int, y: int):\n    \"\"\"Add two numbers x and y\n    >>> add(2, 3)\n    5\n    >>> add(5, 7)\n    12\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773660142-hdUw1fiwo0jFjON6Xk2O",
+  "response_text": "def add(x: int, y: int):\n    \"\"\"Add two numbers x and y\n    >>> add(2, 3)\n    5\n    >>> add(5, 7)\n    12\n    \"\"\"\n    return x + y\n",
+  "usage": {
+    "prompt_tokens": 128,
+    "completion_tokens": 55,
+    "total_tokens": 183
+  },
+  "latency_ms": 3695,
+  "cost_usd": 1.4588e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 1.4588e-05,
+  "raw_response": {
+    "id": "gen-1773660142-hdUw1fiwo0jFjON6Xk2O",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def add(x: int, y: int):\n    \"\"\"Add two numbers x and y\n    >>> add(2, 3)\n    5\n    >>> add(5, 7)\n    12\n    \"\"\"\n    return x + y\n",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773660142,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 128,
+      "total_tokens": 183,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 4.342e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 4.342e-05,
+        "upstream_inference_prompt_cost": 1.152e-05,
+        "upstream_inference_completions_cost": 3.19e-05
+      }
+    },
+    "provider": "Novita"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T11:22:22.592Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1006,
+      "moderation_latency": null,
+      "generation_time": 2940,
+      "tokens_prompt": 118,
+      "tokens_completion": 39,
+      "native_tokens_prompt": 128,
+      "native_tokens_completion": 55,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 4.342e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "cf186489-d252-4fb7-aca9-87ef7b557eff",
+          "id": "423b4c11a244e134337f414e44caad53",
+          "is_byok": false,
+          "latency": 1006,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Novita",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773660142-hdUw1fiwo0jFjON6Xk2O",
+      "upstream_id": "423b4c11a244e134337f414e44caad53",
+      "total_cost": 4.342e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Novita"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_300",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nOn Tuesday, Peter wants to exercise for twice the amount of time he did on Monday and Sunday combined. On Sunday he exercised for 23 minutes. On Monday he exercised for 16 minutes. How many minutes does he have to exercise on Tuesday to reach his goal?"
+    }
+  ],
+  "request_id": "gen-1773654216-8A1b6XHrCsh3LUZNAwWW",
+  "response_text": "**Solution:**\n\nLet me find how much Peter needs to exercise on Tuesday.\n\n**Given information:**\n- Sunday: 23 minutes\n- Monday: 16 minutes\n- Tuesday goal: twice the combined time from Sunday and Monday\n\n**Step 1: Find the combined time for Sunday and Monday**\n23 + 16 = 39 minutes\n\n**Step 2: Calculate Tuesday's exercise goal**\nTuesday = 2 × 39 = 78 minutes\n\nFINAL: 78",
+  "usage": {
+    "prompt_tokens": 192,
+    "completion_tokens": 238,
+    "total_tokens": 430
+  },
+  "latency_ms": 3236,
+  "cost_usd": 0.001382,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.001382,
+  "raw_response": {
+    "id": "gen-1773654216-8A1b6XHrCsh3LUZNAwWW",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Solution:**\n\nLet me find how much Peter needs to exercise on Tuesday.\n\n**Given information:**\n- Sunday: 23 minutes\n- Monday: 16 minutes\n- Tuesday goal: twice the combined time from Sunday and Monday\n\n**Step 1: Find the combined time for Sunday and Monday**\n23 + 16 = 39 minutes\n\n**Step 2: Calculate Tuesday's exercise goal**\nTuesday = 2 × 39 = 78 minutes\n\nFINAL: 78",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773654216,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 192,
+      "total_tokens": 430,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 116,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001382,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001382,
+        "upstream_inference_prompt_cost": 0.000192,
+        "upstream_inference_completions_cost": 0.00119
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}
