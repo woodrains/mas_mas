@@ -1,0 +1,98 @@
+{
+  "ours_vs_random": {
+    "success_bootstrap": {
+      "observed_diff": 0.048,
+      "ci_95": [
+        0.02,
+        0.078
+      ],
+      "p_value": 0.0012,
+      "n_boot": 5000
+    },
+    "mcnemar": {
+      "table": [
+        [
+          427,
+          38
+        ],
+        [
+          14,
+          21
+        ]
+      ],
+      "p_value": 0.0011951203200073481
+    },
+    "cost_wilcoxon": {
+      "stat": 28024.0,
+      "p_value": 3.327824015695394e-24
+    },
+    "latency_wilcoxon": {
+      "stat": 54138.5,
+      "p_value": 0.00865197603427223
+    }
+  },
+  "ours_vs_cost_first": {
+    "success_bootstrap": {
+      "observed_diff": 0.018,
+      "ci_95": [
+        -0.004049999999999983,
+        0.04
+      ],
+      "p_value": 0.1388,
+      "n_boot": 5000
+    },
+    "mcnemar": {
+      "table": [
+        [
+          444,
+          21
+        ],
+        [
+          12,
+          23
+        ]
+      ],
+      "p_value": 0.16275565745308995
+    },
+    "cost_wilcoxon": {
+      "stat": 18830.5,
+      "p_value": 5.7944562533178085e-34
+    },
+    "latency_wilcoxon": {
+      "stat": 46452.5,
+      "p_value": 5.63390701223193e-07
+    }
+  },
+  "ours_vs_single_best": {
+    "success_bootstrap": {
+      "observed_diff": 0.006,
+      "ci_95": [
+        -0.014,
+        0.028
+      ],
+      "p_value": 0.6348,
+      "n_boot": 5000
+    },
+    "mcnemar": {
+      "table": [
+        [
+          449,
+          16
+        ],
+        [
+          13,
+          22
+        ]
+      ],
+      "p_value": 0.711071103811264
+    },
+    "cost_wilcoxon": {
+      "stat": 22381.0,
+      "p_value": 1.0371266309676785e-34
+    },
+    "latency_wilcoxon": {
+      "stat": 37537.5,
+      "p_value": 8.397218818924446e-15
+    }
+  }
+}

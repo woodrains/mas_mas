@@ -1,0 +1,11 @@
+method,worker_id,usage_ratio
+random,deepseek_r1,0.244
+random,gemini25flash,0.264
+random,haiku45,0.258
+random,qwen3_235b,0.234
+cost_first,qwen3_235b,1.0
+single_best,gemini25flash,1.0
+ours,deepseek_r1,0.004
+ours,gemini25flash,0.256
+ours,haiku45,0.12
+ours,qwen3_235b,0.62

@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/22",
+  "task_type": "humaneval",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773690218-6vnPmdMTa0rRWfPtOKx9",
+  "response_text": "```python\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    result = []\n    for item in values:\n        if isinstance(item, int):\n            result.append(item)\n    return result\n\n```",
+  "usage": {
+    "prompt_tokens": 171,
+    "completion_tokens": 348,
+    "total_tokens": 519
+  },
+  "latency_ms": 3640,
+  "cost_usd": 0.0009213,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0009213,
+  "raw_response": {
+    "id": "gen-1773690218-6vnPmdMTa0rRWfPtOKx9",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "```python\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    result = []\n    for item in values:\n        if isinstance(item, int):\n            result.append(item)\n    return result\n\n```",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773690218,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 348,
+      "prompt_tokens": 171,
+      "total_tokens": 519,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 213,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0009213,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0009213,
+        "upstream_inference_prompt_cost": 5.13e-05,
+        "upstream_inference_completions_cost": 0.00087
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

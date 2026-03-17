@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1294",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nJake is shopping at a clothing store. The store has a buy one get one 50% off deal on T-shirts. Jake buys 2 T-shirts. The original price of each T-shirt is $8. Then, Jake buys a pair of shoes that is 40% off the original price. The original price of the shoes is $40. What is the total amount of money Jake spends at the store?"
+    }
+  ],
+  "request_id": "gen-1773682215-xUtzUXZLdsnoO8qLbBAb",
+  "response_text": "The original price of each T-shirt is $8.\nJake buys 2 T-shirts with a \"buy one get one 50% off\" deal.\nCost of the first T-shirt = $8\nCost of the second T-shirt = $8 * 50% = $8 * 0.50 = $4\nTotal cost of T-shirts = $8 + $4 = $12\n\nThe original price of the shoes is $40.\nThe shoes are 40% off.\nDiscount amount for shoes = $40 * 40% = $40 * 0.40 = $16\nPrice of shoes after discount = $40 - $16 = $24\n\nTotal amount Jake spends = Total cost of T-shirts + Price of shoes after discount\nTotal amount Jake spends = $12 + $24 = $36\n\nFINAL: 36",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 517,
+    "total_tokens": 698
+  },
+  "latency_ms": 3263,
+  "cost_usd": 0.0013468,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0013468,
+  "raw_response": {
+    "id": "gen-1773682215-xUtzUXZLdsnoO8qLbBAb",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "The original price of each T-shirt is $8.\nJake buys 2 T-shirts with a \"buy one get one 50% off\" deal.\nCost of the first T-shirt = $8\nCost of the second T-shirt = $8 * 50% = $8 * 0.50 = $4\nTotal cost of T-shirts = $8 + $4 = $12\n\nThe original price of the shoes is $40.\nThe shoes are 40% off.\nDiscount amount for shoes = $40 * 40% = $40 * 0.40 = $16\nPrice of shoes after discount = $40 - $16 = $24\n\nTotal amount Jake spends = Total cost of T-shirts + Price of shoes after discount\nTotal amount Jake spends = $12 + $24 = $36\n\nFINAL: 36",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773682215,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 517,
+      "prompt_tokens": 181,
+      "total_tokens": 698,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 317,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0013468,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0013468,
+        "upstream_inference_prompt_cost": 5.43e-05,
+        "upstream_inference_completions_cost": 0.0012925
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

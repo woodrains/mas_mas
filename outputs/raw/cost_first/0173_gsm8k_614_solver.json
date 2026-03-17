@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_614",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nGary does laundry twice a week. Each load of laundry uses 20 gallons of water, and a gallon of water costs $0.15. How much does Gary spend on water for laundry in a year?"
+    }
+  ],
+  "request_id": "gen-1773669962-8skIz5ExIiRR1FnskLAC",
+  "response_text": "Gary does laundry twice a week, so he does 2 loads per week.\n\nThere are 52 weeks in a year, so the total number of loads per year is:  \n2 loads/week × 52 weeks = 104 loads/year.\n\nEach load uses 20 gallons of water, so total water used per year is:  \n104 loads × 20 gallons/load = 2080 gallons.\n\nEach gallon costs $0.15, so the total cost is:  \n2080 gallons × $0.15/gallon = $312.\n\nFINAL: 312",
+  "usage": {
+    "prompt_tokens": 141,
+    "completion_tokens": 133,
+    "total_tokens": 274
+  },
+  "latency_ms": 4480,
+  "cost_usd": 2.3311e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.3311e-05,
+  "raw_response": {
+    "id": "gen-1773669962-8skIz5ExIiRR1FnskLAC",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Gary does laundry twice a week, so he does 2 loads per week.\n\nThere are 52 weeks in a year, so the total number of loads per year is:  \n2 loads/week × 52 weeks = 104 loads/year.\n\nEach load uses 20 gallons of water, so total water used per year is:  \n104 loads × 20 gallons/load = 2080 gallons.\n\nEach gallon costs $0.15, so the total cost is:  \n2080 gallons × $0.15/gallon = $312.\n\nFINAL: 312",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773669962,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 133,
+      "prompt_tokens": 141,
+      "total_tokens": 274,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 91,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.00014806,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00014806,
+        "upstream_inference_prompt_cost": 3.102e-05,
+        "upstream_inference_completions_cost": 0.00011704
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_817",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nPaul needs 63 cupcakes for a birthday party happening on Saturday. He already has 8 chocolate cupcakes and 40 toffee cupcakes. How many more cupcakes should Paul buy?"
+    }
+  ],
+  "request_id": "gen-1773680075-OC5UeNDEgp4hujl06DgI",
+  "response_text": "Paul needs 63 cupcakes in total.\nHe has 8 chocolate cupcakes and 40 toffee cupcakes.\nTotal cupcakes he has = 8 + 40 = 48 cupcakes.\nCupcakes he needs to buy = Total needed - Total he has\nCupcakes he needs to buy = 63 - 48 = 15 cupcakes.\n\nFINAL: 15",
+  "usage": {
+    "prompt_tokens": 128,
+    "completion_tokens": 189,
+    "total_tokens": 317
+  },
+  "latency_ms": 5249,
+  "cost_usd": 0.0005109,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0005109,
+  "raw_response": {
+    "id": "gen-1773680075-OC5UeNDEgp4hujl06DgI",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Paul needs 63 cupcakes in total.\nHe has 8 chocolate cupcakes and 40 toffee cupcakes.\nTotal cupcakes he has = 8 + 40 = 48 cupcakes.\nCupcakes he needs to buy = Total needed - Total he has\nCupcakes he needs to buy = 63 - 48 = 15 cupcakes.\n\nFINAL: 15",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773680075,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 128,
+      "total_tokens": 317,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 106,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0005109,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0005109,
+        "upstream_inference_prompt_cost": 3.84e-05,
+        "upstream_inference_completions_cost": 0.0004725
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

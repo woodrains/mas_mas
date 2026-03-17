@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/103",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef rounded_avg(n, m):\n    \"\"\"You are given two positive integers n and m, and your task is to compute the\n    average of the integers from n through m (including n and m). \n    Round the answer to the nearest integer and convert that to binary.\n    If n is greater than m, return -1.\n    Example:\n    rounded_avg(1, 5) => \"0b11\"\n    rounded_avg(7, 5) => -1\n    rounded_avg(10, 20) => \"0b1111\"\n    rounded_avg(20, 33) => \"0b11010\"\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773673628-Lh0EDTfiC0nL9HloFv8X",
+  "response_text": "def rounded_avg(n, m):\n    if n > m:\n        return -1\n    \n    total = sum(range(n, m + 1))\n    count = m - n + 1\n    average = total / count\n    rounded = round(average)\n    return bin(rounded)",
+  "usage": {
+    "prompt_tokens": 224,
+    "completion_tokens": 61,
+    "total_tokens": 285
+  },
+  "latency_ms": 3357,
+  "cost_usd": 2.2003999999999998e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.2003999999999998e-05,
+  "raw_response": {
+    "id": "gen-1773673628-Lh0EDTfiC0nL9HloFv8X",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def rounded_avg(n, m):\n    if n > m:\n        return -1\n    \n    total = sum(range(n, m + 1))\n    count = m - n + 1\n    average = total / count\n    rounded = round(average)\n    return bin(rounded)",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773673628,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 61,
+      "prompt_tokens": 224,
+      "total_tokens": 285,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.85e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.85e-05,
+        "upstream_inference_prompt_cost": 2.24e-05,
+        "upstream_inference_completions_cost": 6.1e-06
+      }
+    },
+    "provider": "WandB"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

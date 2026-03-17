@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/31",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\n\ndef is_prime(n):\n    \"\"\"Return true if a given number is prime, and false otherwise.\n    >>> is_prime(6)\n    False\n    >>> is_prime(101)\n    True\n    >>> is_prime(11)\n    True\n    >>> is_prime(13441)\n    True\n    >>> is_prime(61)\n    True\n    >>> is_prime(4)\n    False\n    >>> is_prime(1)\n    False\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773669975-JU94anfrocL8s7Wmm9NK",
+  "response_text": "def is_prime(n):\n    \"\"\"Return true if a given number is prime, and false otherwise.\n    >>> is_prime(6)\n    False\n    >>> is_prime(101)\n    True\n    >>> is_prime(11)\n    True\n    >>> is_prime(13441)\n    True\n    >>> is_prime(61)\n    True\n    >>> is_prime(4)\n    False\n    >>> is_prime(1)\n    False\n    \"\"\"\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 175,
+    "total_tokens": 355
+  },
+  "latency_ms": 7738,
+  "cost_usd": 3.028e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 3.028e-05,
+  "raw_response": {
+    "id": "gen-1773669975-JU94anfrocL8s7Wmm9NK",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def is_prime(n):\n    \"\"\"Return true if a given number is prime, and false otherwise.\n    >>> is_prime(6)\n    False\n    >>> is_prime(101)\n    True\n    >>> is_prime(11)\n    True\n    >>> is_prime(13441)\n    True\n    >>> is_prime(61)\n    True\n    >>> is_prime(4)\n    False\n    >>> is_prime(1)\n    False\n    \"\"\"\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773669975,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 180,
+      "total_tokens": 355,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0001177,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001177,
+        "upstream_inference_prompt_cost": 1.62e-05,
+        "upstream_inference_completions_cost": 0.0001015
+      }
+    },
+    "provider": "Novita"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T14:06:15.264Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1195,
+      "moderation_latency": null,
+      "generation_time": 7045,
+      "tokens_prompt": 174,
+      "tokens_completion": 151,
+      "native_tokens_prompt": 180,
+      "native_tokens_completion": 175,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.0001177,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "cf186489-d252-4fb7-aca9-87ef7b557eff",
+          "id": "12de03ffc0781922e5dc1c34dd3bde4f",
+          "is_byok": false,
+          "latency": 1195,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Novita",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773669975-JU94anfrocL8s7Wmm9NK",
+      "upstream_id": "12de03ffc0781922e5dc1c34dd3bde4f",
+      "total_cost": 0.0001177,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Novita"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

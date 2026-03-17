@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/4",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\nfrom typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    \"\"\" For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773669437-tp3owzVVNYVIZjPaufIE",
+  "response_text": "from typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)",
+  "usage": {
+    "prompt_tokens": 191,
+    "completion_tokens": 46,
+    "total_tokens": 237
+  },
+  "latency_ms": 1110,
+  "cost_usd": 1.8160999999999998e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 1.8160999999999998e-05,
+  "raw_response": {
+    "id": "gen-1773669437-tp3owzVVNYVIZjPaufIE",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "from typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773669437,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 191,
+      "total_tokens": 237,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.37e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.37e-05,
+        "upstream_inference_prompt_cost": 1.91e-05,
+        "upstream_inference_completions_cost": 4.6e-06
+      }
+    },
+    "provider": "WandB"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

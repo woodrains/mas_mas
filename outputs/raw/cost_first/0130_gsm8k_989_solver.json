@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_989",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nEmily can peel 6 shrimp a minute and saute 30 shrimp in 10 minutes. How long will it take her to peel and cook 90 shrimp?"
+    }
+  ],
+  "request_id": "gen-1773669300-4GR0PZZ428vPaE22TzSy",
+  "response_text": "First, calculate how long it takes Emily to peel 90 shrimp.\n\nShe peels 6 shrimp per minute, so:\n\nTime to peel = 90 ÷ 6 = 15 minutes.\n\nNext, calculate how long it takes to sauté 90 shrimp.\n\nWe are told she can sauté 30 shrimp in 10 minutes, so her sauté rate is:\n\n30 shrimp / 10 minutes = 3 shrimp per minute.\n\nTime to sauté 90 shrimp = 90 ÷ 3 = 30 minutes.\n\nNow, total time = peeling time + sautéing time = 15 + 30 = 45 minutes.\n\nAssuming she does the tasks sequentially (peel first, then sauté), the total time is 45 minutes.\n\nFINAL: 45",
+  "usage": {
+    "prompt_tokens": 133,
+    "completion_tokens": 183,
+    "total_tokens": 316
+  },
+  "latency_ms": 5476,
+  "cost_usd": 2.7743000000000002e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.7743000000000002e-05,
+  "raw_response": {
+    "id": "gen-1773669300-4GR0PZZ428vPaE22TzSy",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "First, calculate how long it takes Emily to peel 90 shrimp.\n\nShe peels 6 shrimp per minute, so:\n\nTime to peel = 90 ÷ 6 = 15 minutes.\n\nNext, calculate how long it takes to sauté 90 shrimp.\n\nWe are told she can sauté 30 shrimp in 10 minutes, so her sauté rate is:\n\n30 shrimp / 10 minutes = 3 shrimp per minute.\n\nTime to sauté 90 shrimp = 90 ÷ 3 = 30 minutes.\n\nNow, total time = peeling time + sautéing time = 15 + 30 = 45 minutes.\n\nAssuming she does the tasks sequentially (peel first, then sauté), the total time is 45 minutes.\n\nFINAL: 45",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773669300,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 183,
+      "prompt_tokens": 133,
+      "total_tokens": 316,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 7.9e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 7.9e-05,
+        "upstream_inference_prompt_cost": 3.325e-05,
+        "upstream_inference_completions_cost": 4.575e-05
+      }
+    },
+    "provider": "Hyperbolic"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

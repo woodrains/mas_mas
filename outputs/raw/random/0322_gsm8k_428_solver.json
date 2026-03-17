@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_428",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nA food caterer was told to prepare gourmet hot dogs for 36 guests. While most people would only eat one hotdog, he prepared enough for half of the guests to be able to have two hotdogs. However, 40 guests showed up, and everyone wanted a second hotdog. How many guests did not get a second hotdog?"
+    }
+  ],
+  "request_id": "gen-1773663646-yBn7aZKOgTY40s0zvJBU",
+  "response_text": "# Solution\n\nLet me work through this step-by-step.\n\n**What the caterer prepared:**\n- Preparing for 36 guests\n- Half of 36 = 18 guests were expected to eat 2 hotdogs\n- The other half (18 guests) were expected to eat 1 hotdog\n- Total hotdogs prepared = (18 × 2) + (18 × 1) = 36 + 18 = 54 hotdogs\n\n**What actually happened:**\n- 40 guests showed up (not 36)\n- Everyone wants a second hotdog\n- First, distribute 1 hotdog to each of the 40 guests = 40 hotdogs used\n- Remaining hotdogs = 54 - 40 = 14 hotdogs\n- So 14 guests can get a second hotdog\n\n**Guests who did NOT get a second hotdog:**\n- 40 - 14 = 26 guests\n\nFINAL: 26",
+  "usage": {
+    "prompt_tokens": 209,
+    "completion_tokens": 577,
+    "total_tokens": 786
+  },
+  "latency_ms": 5240,
+  "cost_usd": 0.0030940000000000004,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0030940000000000004,
+  "raw_response": {
+    "id": "gen-1773663646-yBn7aZKOgTY40s0zvJBU",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "# Solution\n\nLet me work through this step-by-step.\n\n**What the caterer prepared:**\n- Preparing for 36 guests\n- Half of 36 = 18 guests were expected to eat 2 hotdogs\n- The other half (18 guests) were expected to eat 1 hotdog\n- Total hotdogs prepared = (18 × 2) + (18 × 1) = 36 + 18 = 54 hotdogs\n\n**What actually happened:**\n- 40 guests showed up (not 36)\n- Everyone wants a second hotdog\n- First, distribute 1 hotdog to each of the 40 guests = 40 hotdogs used\n- Remaining hotdogs = 54 - 40 = 14 hotdogs\n- So 14 guests can get a second hotdog\n\n**Guests who did NOT get a second hotdog:**\n- 40 - 14 = 26 guests\n\nFINAL: 26",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773663646,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 577,
+      "prompt_tokens": 209,
+      "total_tokens": 786,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 252,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.003094,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.003094,
+        "upstream_inference_prompt_cost": 0.000209,
+        "upstream_inference_completions_cost": 0.002885
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T12:20:46.118Z",
+      "model": "anthropic/claude-4.5-haiku-20251001",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 2995,
+      "moderation_latency": 425,
+      "generation_time": 4159,
+      "tokens_prompt": 172,
+      "tokens_completion": 423,
+      "native_tokens_prompt": 209,
+      "native_tokens_completion": 577,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 252,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.003094,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "d000261c-5aeb-47d1-ac87-ad64dbe1cdb6",
+          "id": "f6e383c4-895f-418e-8537-f4d0c76977a0",
+          "is_byok": false,
+          "latency": 1423,
+          "model_permaslug": "anthropic/claude-4.5-haiku-20251001",
+          "provider_name": "Amazon Bedrock",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773663646-yBn7aZKOgTY40s0zvJBU",
+      "upstream_id": "f6e383c4-895f-418e-8537-f4d0c76977a0",
+      "total_cost": 0.003094,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Amazon Bedrock"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

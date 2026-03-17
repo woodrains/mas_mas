@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_297",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nSam sells bread. He has a target of selling 120 crates of bread in a week. One week he was closed on Monday and Friday. Over the weekend he sold 20 crates. On Tuesday he sold 15 crates, on Wednesday 12 crates, and Thursday 18 crates. By how many crates was Sam off from his target for the week?"
+    }
+  ],
+  "request_id": "gen-1773665507-RgPbrhBE72lPgTxgSIUS",
+  "response_text": "Sam's target is to sell 120 crates of bread in a week.\n\nHe was closed on Monday and Friday, so he only sold bread on Tuesday, Wednesday, Thursday, and the weekend.\n\nSales:\n- Tuesday: 15 crates\n- Wednesday: 12 crates\n- Thursday: 18 crates\n- Weekend: 20 crates\n\nTotal crates sold = 15 + 12 + 18 + 20 = 65 crates\n\nTarget = 120 crates\n\nDifference = Target - Actual = 120 - 65 = 55 crates\n\nSam was 55 crates short of his target.\n\nFINAL: 55",
+  "usage": {
+    "prompt_tokens": 175,
+    "completion_tokens": 144,
+    "total_tokens": 319
+  },
+  "latency_ms": 3930,
+  "cost_usd": 2.6825e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.6825e-05,
+  "raw_response": {
+    "id": "gen-1773665507-RgPbrhBE72lPgTxgSIUS",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Sam's target is to sell 120 crates of bread in a week.\n\nHe was closed on Monday and Friday, so he only sold bread on Tuesday, Wednesday, Thursday, and the weekend.\n\nSales:\n- Tuesday: 15 crates\n- Wednesday: 12 crates\n- Thursday: 18 crates\n- Weekend: 20 crates\n\nTotal crates sold = 15 + 12 + 18 + 20 = 65 crates\n\nTarget = 120 crates\n\nDifference = Target - Actual = 120 - 65 = 55 crates\n\nSam was 55 crates short of his target.\n\nFINAL: 55",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773665507,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 144,
+      "prompt_tokens": 175,
+      "total_tokens": 319,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 9.927e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 9.927e-05,
+        "upstream_inference_prompt_cost": 1.575e-05,
+        "upstream_inference_completions_cost": 8.352e-05
+      }
+    },
+    "provider": "Novita"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_991",
+  "task_type": "gsm8k",
+  "worker_id": "deepseek_r1",
+  "model": "deepseek/deepseek-r1-0528",
+  "worker_role": "reasoning_specialist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 2048,
+    "reasoning": {
+      "enabled": true,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 2048,
+    "extra_body": {
+      "reasoning": {
+        "enabled": true,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nComet Halley orbits the sun every 75 years. Bill's dad saw the Comet when he was 30 years old. Bill saw the comet a second time when he was three times the age his father was when he saw the Comet. How old was Bill when he saw the Comet for the first time?"
+    }
+  ],
+  "request_id": "gen-1773664322-6uJ6Q7j2d2J5JAzYrgkf",
+  "response_text": "",
+  "usage": {
+    "prompt_tokens": 158,
+    "completion_tokens": 2048,
+    "total_tokens": 2206
+  },
+  "latency_ms": 49260,
+  "cost_usd": 0.0044743,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0044743,
+  "raw_response": {
+    "id": "gen-1773664322-6uJ6Q7j2d2J5JAzYrgkf",
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": null,
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "length"
+      }
+    ],
+    "created": 1773664322,
+    "model": "deepseek/deepseek-r1-0528",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 2048,
+      "prompt_tokens": 158,
+      "total_tokens": 2206,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1831,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 64,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0044726,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0044726,
+        "upstream_inference_prompt_cost": 6.94e-05,
+        "upstream_inference_completions_cost": 0.0044032
+      }
+    },
+    "provider": "DeepInfra"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T12:32:01.829Z",
+      "model": "deepseek/deepseek-r1-0528",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 277,
+      "moderation_latency": null,
+      "generation_time": 48100,
+      "tokens_prompt": 179,
+      "tokens_completion": 1831,
+      "native_tokens_prompt": 158,
+      "native_tokens_completion": 2048,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 1831,
+      "native_tokens_cached": 64,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "length",
+      "native_finish_reason": "length",
+      "usage": 0.0044726,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "0f47837d-9d06-4c68-a93c-29b0c7cd9027",
+          "id": "cmpl-7b69a1bdeaa244c4a39c123dd1f459d7",
+          "is_byok": false,
+          "latency": 277,
+          "model_permaslug": "deepseek/deepseek-r1-0528",
+          "provider_name": "DeepInfra",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773664322-6uJ6Q7j2d2J5JAzYrgkf",
+      "upstream_id": "cmpl-7b69a1bdeaa244c4a39c123dd1f459d7",
+      "total_cost": 0.0044726,
+      "cache_discount": 9.6e-06,
+      "upstream_inference_cost": 0,
+      "provider_name": "DeepInfra"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": false,
+    "failure_reason": "parse_failure",
+    "format_ok": false
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_448",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nA salesman bought a case of 48 sneakers for $576. He sold 17 of them for $20 at a flash sale on Monday, and the rest were sold to a department store for $25 each throughout the rest of the week. How much money, in dollars, was the salesman's profit?"
+    }
+  ],
+  "request_id": "gen-1773676549-dTXaYNi47lvu7z8O5pq5",
+  "response_text": "The total cost of the sneakers is $576.\n\nFirst, calculate the revenue from the flash sale on Monday:\nNumber of sneakers sold on Monday = 17\nPrice per sneaker on Monday = $20\nRevenue from Monday's sale = 17 * $20 = $340\n\nNext, calculate the number of remaining sneakers:\nTotal sneakers = 48\nSneakers sold on Monday = 17\nRemaining sneakers = 48 - 17 = 31\n\nThen, calculate the revenue from selling the remaining sneakers to the department store:\nNumber of sneakers sold to department store = 31\nPrice per sneaker to department store = $25\nRevenue from department store sale = 31 * $25 = $775\n\nCalculate the total revenue:\nTotal revenue = Revenue from Monday's sale + Revenue from department store sale\nTotal revenue = $340 + $775 = $1115\n\nFinally, calculate the profit:\nProfit = Total revenue - Total cost\nProfit = $1115 - $576 = $539\n\nThe salesman's profit was $539.\n\nFINAL: 539",
+  "usage": {
+    "prompt_tokens": 160,
+    "completion_tokens": 690,
+    "total_tokens": 850
+  },
+  "latency_ms": 5718,
+  "cost_usd": 0.001773,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.001773,
+  "raw_response": {
+    "id": "gen-1773676549-dTXaYNi47lvu7z8O5pq5",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "The total cost of the sneakers is $576.\n\nFirst, calculate the revenue from the flash sale on Monday:\nNumber of sneakers sold on Monday = 17\nPrice per sneaker on Monday = $20\nRevenue from Monday's sale = 17 * $20 = $340\n\nNext, calculate the number of remaining sneakers:\nTotal sneakers = 48\nSneakers sold on Monday = 17\nRemaining sneakers = 48 - 17 = 31\n\nThen, calculate the revenue from selling the remaining sneakers to the department store:\nNumber of sneakers sold to department store = 31\nPrice per sneaker to department store = $25\nRevenue from department store sale = 31 * $25 = $775\n\nCalculate the total revenue:\nTotal revenue = Revenue from Monday's sale + Revenue from department store sale\nTotal revenue = $340 + $775 = $1115\n\nFinally, calculate the profit:\nProfit = Total revenue - Total cost\nProfit = $1115 - $576 = $539\n\nThe salesman's profit was $539.\n\nFINAL: 539",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773676549,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 690,
+      "prompt_tokens": 160,
+      "total_tokens": 850,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 431,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001773,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001773,
+        "upstream_inference_prompt_cost": 4.8e-05,
+        "upstream_inference_completions_cost": 0.001725
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T15:55:49.326Z",
+      "model": "google/gemini-2.5-flash",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 3200,
+      "moderation_latency": null,
+      "generation_time": 4156,
+      "tokens_prompt": 160,
+      "tokens_completion": 240,
+      "native_tokens_prompt": 160,
+      "native_tokens_completion": 690,
+      "native_tokens_completion_images": 0,
+      "native_tokens_reasoning": 431,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "usage": 0.001773,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "b9b095f0-6448-46bb-8e4c-0111ba2bf1b0",
+          "is_byok": false,
+          "latency": 3200,
+          "model_permaslug": "google/gemini-2.5-flash",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773676549-dTXaYNi47lvu7z8O5pq5",
+      "upstream_id": null,
+      "total_cost": 0.001773,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/21",
+  "task_type": "humaneval",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\nfrom typing import List\n\n\ndef rescale_to_unit(numbers: List[float]) -> List[float]:\n    \"\"\" Given list of numbers (of at least two elements), apply a linear transform to that list,\n    such that the smallest number will become 0 and the largest will become 1\n    >>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])\n    [0.0, 0.25, 0.5, 0.75, 1.0]\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773689351-Zgl3weI8OqaM78Rru0Hl",
+  "response_text": "```python\nfrom typing import List\n\n\ndef rescale_to_unit(numbers: List[float]) -> List[float]:\n    \"\"\" Given list of numbers (of at least two elements), apply a linear transform to that list,\n    such that the smallest number will become 0 and the largest will become 1\n    >>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])\n    [0.0, 0.25, 0.5, 0.75, 1.0]\n    \"\"\"\n    min_num = min(numbers)\n    max_num = max(numbers)\n    range_num = max_num - min_num\n    return [(x - min_num) / range_num for x in numbers]\n```",
+  "usage": {
+    "prompt_tokens": 244,
+    "completion_tokens": 790,
+    "total_tokens": 1034
+  },
+  "latency_ms": 6557,
+  "cost_usd": 0.004194000000000001,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.004194000000000001,
+  "raw_response": {
+    "id": "gen-1773689351-Zgl3weI8OqaM78Rru0Hl",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "```python\nfrom typing import List\n\n\ndef rescale_to_unit(numbers: List[float]) -> List[float]:\n    \"\"\" Given list of numbers (of at least two elements), apply a linear transform to that list,\n    such that the smallest number will become 0 and the largest will become 1\n    >>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])\n    [0.0, 0.25, 0.5, 0.75, 1.0]\n    \"\"\"\n    min_num = min(numbers)\n    max_num = max(numbers)\n    range_num = max_num - min_num\n    return [(x - min_num) / range_num for x in numbers]\n```",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773689351,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 790,
+      "prompt_tokens": 244,
+      "total_tokens": 1034,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 341,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.004194,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.004194,
+        "upstream_inference_prompt_cost": 0.000244,
+        "upstream_inference_completions_cost": 0.00395
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

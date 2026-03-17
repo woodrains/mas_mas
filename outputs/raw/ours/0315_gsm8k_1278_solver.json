@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1278",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nTom found 214 seashells, Nancy found 432 seashells, and Benny found 86 seashells on the beach. When they cleaned them, they discovered that 67 were cracked. How many good seashells did they find together?"
+    }
+  ],
+  "request_id": "gen-1773689308-YCgLExSXQc0eNqY4DVd0",
+  "response_text": "First, let's find the total number of seashells collected by Tom, Nancy, and Benny:\n\nTom: 214  \nNancy: 432  \nBenny: 86  \n\nTotal seashells = 214 + 432 + 86 = 732\n\nOut of these, 67 were cracked, so the number of good (uncracked) seashells is:\n\n732 - 67 = 665\n\nFINAL: 665",
+  "usage": {
+    "prompt_tokens": 155,
+    "completion_tokens": 112,
+    "total_tokens": 267
+  },
+  "latency_ms": 5239,
+  "cost_usd": 2.2205000000000002e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.2205000000000002e-05,
+  "raw_response": {
+    "id": "gen-1773689308-YCgLExSXQc0eNqY4DVd0",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "First, let's find the total number of seashells collected by Tom, Nancy, and Benny:\n\nTom: 214  \nNancy: 432  \nBenny: 86  \n\nTotal seashells = 214 + 432 + 86 = 732\n\nOut of these, 67 were cracked, so the number of good (uncracked) seashells is:\n\n732 - 67 = 665\n\nFINAL: 665",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773689308,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 112,
+      "prompt_tokens": 155,
+      "total_tokens": 267,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.00012956,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00012956,
+        "upstream_inference_prompt_cost": 3.1e-05,
+        "upstream_inference_completions_cost": 9.856e-05
+      }
+    },
+    "provider": "AtlasCloud"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T19:28:28.282Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 628,
+      "moderation_latency": null,
+      "generation_time": 4574,
+      "tokens_prompt": 149,
+      "tokens_completion": 76,
+      "native_tokens_prompt": 155,
+      "native_tokens_completion": 112,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.00012956,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "aaae5602-0949-4bc9-bd77-588b4b285341",
+          "id": "f585357d93c14b5182efef51147a3bd0",
+          "is_byok": false,
+          "latency": 628,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "AtlasCloud",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773689308-YCgLExSXQc0eNqY4DVd0",
+      "upstream_id": "f585357d93c14b5182efef51147a3bd0",
+      "total_cost": 0.00012956,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "AtlasCloud"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

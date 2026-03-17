@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_432",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nPrince Thaddeus slew 100 dragons with his mighty sword, while Prince Arthur, using a spear, slew three quarters as many dragons as Prince Thaddeus.  Using a rusty iron axe, Prince Walter slew twice as many dragons as Prince Arthur.  But Prince Bruce, having forgot his sword at home, slew one-fifth as many dragons as Prince Walter using a nail file.  How many Dragons has Prince Bruce slain?"
+    }
+  ],
+  "request_id": "gen-1773678418-F5nzGy1XqAeT0HhIV0p1",
+  "response_text": "Prince Thaddeus slew 100 dragons.\nPrince Arthur slew three quarters as many as Prince Thaddeus: (3/4) * 100 = 75 dragons.\nPrince Walter slew twice as many as Prince Arthur: 2 * 75 = 150 dragons.\nPrince Bruce slew one-fifth as many as Prince Walter: (1/5) * 150 = 30 dragons.\n\nFINAL: 30",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 371,
+    "total_tokens": 551
+  },
+  "latency_ms": 2877,
+  "cost_usd": 0.0009815,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0009815,
+  "raw_response": {
+    "id": "gen-1773678418-F5nzGy1XqAeT0HhIV0p1",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Prince Thaddeus slew 100 dragons.\nPrince Arthur slew three quarters as many as Prince Thaddeus: (3/4) * 100 = 75 dragons.\nPrince Walter slew twice as many as Prince Arthur: 2 * 75 = 150 dragons.\nPrince Bruce slew one-fifth as many as Prince Walter: (1/5) * 150 = 30 dragons.\n\nFINAL: 30",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773678418,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 371,
+      "prompt_tokens": 180,
+      "total_tokens": 551,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 271,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0009815,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0009815,
+        "upstream_inference_prompt_cost": 5.4e-05,
+        "upstream_inference_completions_cost": 0.0009275
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T16:26:58.174Z",
+      "model": "google/gemini-2.5-flash",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1916,
+      "moderation_latency": null,
+      "generation_time": 2281,
+      "tokens_prompt": 196,
+      "tokens_completion": 75,
+      "native_tokens_prompt": 180,
+      "native_tokens_completion": 371,
+      "native_tokens_completion_images": 0,
+      "native_tokens_reasoning": 271,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "usage": 0.0009815,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "b9b095f0-6448-46bb-8e4c-0111ba2bf1b0",
+          "is_byok": false,
+          "latency": 1916,
+          "model_permaslug": "google/gemini-2.5-flash",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773678418-F5nzGy1XqAeT0HhIV0p1",
+      "upstream_id": null,
+      "total_cost": 0.0009815,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

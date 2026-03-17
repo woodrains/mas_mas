@@ -1,0 +1,166 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1273",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nMazie has 52 marbles and gives them to twins, Dallas and Darla.  If Dallas has a total of 21 marbles after dropping 4 of them in the playground, how many did Mazie give to Darla?"
+    }
+  ],
+  "request_id": "gen-1773691156-nMG6r1z8WLqpJ2Euk872",
+  "response_text": "We are told:\n\n- Mazie has 52 marbles in total.\n- She gives all of them to Dallas and Darla.\n- Dallas ends up with 21 marbles **after dropping 4**.\n\nSo, Dallas must have had 21 + 4 = 25 marbles before dropping any.\n\nThat means Mazie gave Dallas 25 marbles.\n\nTotal marbles given to Darla = Total marbles - marbles given to Dallas  \n= 52 - 25 = 27\n\nFINAL: 27",
+  "usage": {
+    "prompt_tokens": 149,
+    "completion_tokens": 116,
+    "total_tokens": 265
+  },
+  "latency_ms": 8409,
+  "cost_usd": 2.2179e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.2179e-05,
+  "raw_response": {
+    "id": "gen-1773691156-nMG6r1z8WLqpJ2Euk872",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "We are told:\n\n- Mazie has 52 marbles in total.\n- She gives all of them to Dallas and Darla.\n- Dallas ends up with 21 marbles **after dropping 4**.\n\nSo, Dallas must have had 21 + 4 = 25 marbles before dropping any.\n\nThat means Mazie gave Dallas 25 marbles.\n\nTotal marbles given to Darla = Total marbles - marbles given to Dallas  \n= 52 - 25 = 27\n\nFINAL: 27",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773691156,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 116,
+      "prompt_tokens": 149,
+      "total_tokens": 265,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 80,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 8.45e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 8.45e-05,
+        "upstream_inference_prompt_cost": 1.49e-05,
+        "upstream_inference_completions_cost": 6.96e-05
+      }
+    },
+    "provider": "Parasail"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T19:59:16.289Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 356,
+      "moderation_latency": null,
+      "generation_time": 3226,
+      "tokens_prompt": 142,
+      "tokens_completion": 99,
+      "native_tokens_prompt": 149,
+      "native_tokens_completion": 116,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 80,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 8.45e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "ae57827e-bc4d-483b-abe6-fa519c237237",
+          "is_byok": false,
+          "latency": 4331,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Crusoe",
+          "status": 429
+        },
+        {
+          "endpoint_id": "043eb28f-fc28-4b0d-9800-b249fcfcfbf9",
+          "id": "chatcmpl-a04555e56821f0fe",
+          "is_byok": false,
+          "latency": 356,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Parasail",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773691156-nMG6r1z8WLqpJ2Euk872",
+      "upstream_id": "chatcmpl-a04555e56821f0fe",
+      "total_cost": 8.45e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Parasail"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

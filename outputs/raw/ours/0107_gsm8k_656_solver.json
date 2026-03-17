@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_656",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nMike's teacher, leaves as homework the reading of a 200-page book. The assignment is to be completed within 30 days. Mike plans to read 10 pages a day. How many days before the deadline will Mike finish his reading?"
+    }
+  ],
+  "request_id": "gen-1773684853-CsmWnhjJmjkB4RzTrEoM",
+  "response_text": "Mike plans to read 10 pages per day.  \nThe book has 200 pages.  \n\nTo find how many days it will take Mike to finish the book:  \n200 pages ÷ 10 pages/day = 20 days  \n\nHe has 30 days to complete the assignment.  \nSo, he will finish in 20 days, which is:  \n30 - 20 = 10 days before the deadline.  \n\nFINAL: 10",
+  "usage": {
+    "prompt_tokens": 150,
+    "completion_tokens": 103,
+    "total_tokens": 253
+  },
+  "latency_ms": 2550,
+  "cost_usd": 2.0949999999999998e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.0949999999999998e-05,
+  "raw_response": {
+    "id": "gen-1773684853-CsmWnhjJmjkB4RzTrEoM",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Mike plans to read 10 pages per day.  \nThe book has 200 pages.  \n\nTo find how many days it will take Mike to finish the book:  \n200 pages ÷ 10 pages/day = 20 days  \n\nHe has 30 days to complete the assignment.  \nSo, he will finish in 20 days, which is:  \n30 - 20 = 10 days before the deadline.  \n\nFINAL: 10",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773684853,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 103,
+      "prompt_tokens": 150,
+      "total_tokens": 253,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.53e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.53e-05,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 1.03e-05
+      }
+    },
+    "provider": "WandB"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

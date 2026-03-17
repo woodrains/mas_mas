@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1221",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nAiden is making his famous steakhouse-seasoned meatballs for a neighborhood cookout. He adds two tablespoons of his secret steakhouse seasoning for every pound of ground beef he uses. He gets sixteen meatballs from each pound of meat. If he wants to make 80 meatballs for the cookout, how much of his secret seasoning will he need?"
+    }
+  ],
+  "request_id": "gen-1773675279-n0UzEqzV1VbsaQe5tk3z",
+  "response_text": "We are told:\n\n- Aiden uses 2 tablespoons of seasoning for every pound of ground beef.\n- Each pound of ground beef makes 16 meatballs.\n- He wants to make 80 meatballs.\n\nFirst, find how many pounds of ground beef are needed:\n\n80 meatballs ÷ 16 meatballs per pound = 5 pounds of ground beef.\n\nNow, calculate how much seasoning is needed:\n\n5 pounds × 2 tablespoons per pound = 10 tablespoons of seasoning.\n\nFINAL: 10",
+  "usage": {
+    "prompt_tokens": 170,
+    "completion_tokens": 108,
+    "total_tokens": 278
+  },
+  "latency_ms": 3686,
+  "cost_usd": 2.287e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.287e-05,
+  "raw_response": {
+    "id": "gen-1773675279-n0UzEqzV1VbsaQe5tk3z",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "We are told:\n\n- Aiden uses 2 tablespoons of seasoning for every pound of ground beef.\n- Each pound of ground beef makes 16 meatballs.\n- He wants to make 80 meatballs.\n\nFirst, find how many pounds of ground beef are needed:\n\n80 meatballs ÷ 16 meatballs per pound = 5 pounds of ground beef.\n\nNow, calculate how much seasoning is needed:\n\n5 pounds × 2 tablespoons per pound = 10 tablespoons of seasoning.\n\nFINAL: 10",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773675279,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 108,
+      "prompt_tokens": 170,
+      "total_tokens": 278,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 9.88e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 9.88e-05,
+        "upstream_inference_prompt_cost": 3.4e-05,
+        "upstream_inference_completions_cost": 6.48e-05
+      }
+    },
+    "provider": "Together"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T15:34:38.862Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 1277,
+      "moderation_latency": null,
+      "generation_time": 2588,
+      "tokens_prompt": 180,
+      "tokens_completion": 115,
+      "native_tokens_prompt": 170,
+      "native_tokens_completion": 108,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 9.88e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "48da8dd9-87ca-4faf-85ff-a62b3a313a35",
+          "id": "obJcRsG-3pDw3Z-9dd4d2bed7399c20",
+          "is_byok": false,
+          "latency": 1277,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Together",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773675279-n0UzEqzV1VbsaQe5tk3z",
+      "upstream_id": "obJcRsG-3pDw3Z-9dd4d2bed7399c20",
+      "total_cost": 9.88e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Together"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

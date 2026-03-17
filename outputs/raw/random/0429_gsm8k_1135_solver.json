@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1135",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\n3 trees each had 7 blue birds in them. 2 different trees each had 4 blue birds. 1 final tree had 3 blue birds. How many blue birds were in the trees in total?"
+    }
+  ],
+  "request_id": "gen-1773666444-EptEMjS0JNkuLXnBMfb1",
+  "response_text": "Let me work through this step-by-step:\n\n**Group 1:** 3 trees each with 7 blue birds\n- 3 × 7 = 21 blue birds\n\n**Group 2:** 2 trees each with 4 blue birds\n- 2 × 4 = 8 blue birds\n\n**Group 3:** 1 tree with 3 blue birds\n- 1 × 3 = 3 blue birds\n\n**Total:** 21 + 8 + 3 = 32 blue birds\n\nFINAL: 32",
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 278,
+    "total_tokens": 461
+  },
+  "latency_ms": 6160,
+  "cost_usd": 0.001573,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.001573,
+  "raw_response": {
+    "id": "gen-1773666444-EptEMjS0JNkuLXnBMfb1",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Let me work through this step-by-step:\n\n**Group 1:** 3 trees each with 7 blue birds\n- 3 × 7 = 21 blue birds\n\n**Group 2:** 2 trees each with 4 blue birds\n- 2 × 4 = 8 blue birds\n\n**Group 3:** 1 tree with 3 blue birds\n- 1 × 3 = 3 blue birds\n\n**Total:** 21 + 8 + 3 = 32 blue birds\n\nFINAL: 32",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773666444,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 278,
+      "prompt_tokens": 183,
+      "total_tokens": 461,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 93,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001573,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001573,
+        "upstream_inference_prompt_cost": 0.000183,
+        "upstream_inference_completions_cost": 0.00139
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T13:07:24.473Z",
+      "model": "anthropic/claude-4.5-haiku-20251001",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 4596,
+      "moderation_latency": 315,
+      "generation_time": 5175,
+      "tokens_prompt": 137,
+      "tokens_completion": 177,
+      "native_tokens_prompt": 183,
+      "native_tokens_completion": 278,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 93,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.001573,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "d000261c-5aeb-47d1-ac87-ad64dbe1cdb6",
+          "id": "b3451430-ce70-41db-9439-959bdef59c5a",
+          "is_byok": false,
+          "latency": 4096,
+          "model_permaslug": "anthropic/claude-4.5-haiku-20251001",
+          "provider_name": "Amazon Bedrock",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773666444-EptEMjS0JNkuLXnBMfb1",
+      "upstream_id": "b3451430-ce70-41db-9439-959bdef59c5a",
+      "total_cost": 0.001573,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Amazon Bedrock"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

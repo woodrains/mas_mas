@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_408",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nToby is reading a book that is 45 pages long. It averages 200 words a page. Toby can read at a rate of 300 words per minute. He has to be at the airport in 60 minutes and plans to leave as soon as he finishes the book. It takes 10 minutes to get to the airport. How many minutes early will Toby be?"
+    }
+  ],
+  "request_id": "gen-1773677541-03u7nhsYQn4uxnwlxCwV",
+  "response_text": "Total pages in the book = 45 pages\nAverage words per page = 200 words\nTotal words in the book = 45 pages * 200 words/page = 9000 words\n\nToby's reading rate = 300 words per minute\nTime taken to read the book = Total words / Reading rate\nTime taken to read the book = 9000 words / 300 words/minute = 30 minutes\n\nToby has to be at the airport in 60 minutes.\nIt takes 10 minutes to get to the airport.\nThis means Toby must leave for the airport no later than 60 minutes - 10 minutes = 50 minutes from now.\n\nToby finishes reading the book in 30 minutes.\nHe needs to leave for the airport in 50 minutes.\nThe amount of time Toby will be early is the time he needs to leave minus the time it takes him to finish the book.\nMinutes early = Time he needs to leave - Time taken to read the book\nMinutes early = 50 minutes - 30 minutes = 20 minutes\n\nFINAL: 20",
+  "usage": {
+    "prompt_tokens": 174,
+    "completion_tokens": 891,
+    "total_tokens": 1065
+  },
+  "latency_ms": 6422,
+  "cost_usd": 0.0022797,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0022797,
+  "raw_response": {
+    "id": "gen-1773677541-03u7nhsYQn4uxnwlxCwV",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Total pages in the book = 45 pages\nAverage words per page = 200 words\nTotal words in the book = 45 pages * 200 words/page = 9000 words\n\nToby's reading rate = 300 words per minute\nTime taken to read the book = Total words / Reading rate\nTime taken to read the book = 9000 words / 300 words/minute = 30 minutes\n\nToby has to be at the airport in 60 minutes.\nIt takes 10 minutes to get to the airport.\nThis means Toby must leave for the airport no later than 60 minutes - 10 minutes = 50 minutes from now.\n\nToby finishes reading the book in 30 minutes.\nHe needs to leave for the airport in 50 minutes.\nThe amount of time Toby will be early is the time he needs to leave minus the time it takes him to finish the book.\nMinutes early = Time he needs to leave - Time taken to read the book\nMinutes early = 50 minutes - 30 minutes = 20 minutes\n\nFINAL: 20",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773677541,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 891,
+      "prompt_tokens": 174,
+      "total_tokens": 1065,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 638,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0022797,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0022797,
+        "upstream_inference_prompt_cost": 5.22e-05,
+        "upstream_inference_completions_cost": 0.0022275
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T16:12:21.917Z",
+      "model": "google/gemini-2.5-flash",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 5118,
+      "moderation_latency": null,
+      "generation_time": 5880,
+      "tokens_prompt": 172,
+      "tokens_completion": 225,
+      "native_tokens_prompt": 174,
+      "native_tokens_completion": 891,
+      "native_tokens_completion_images": 0,
+      "native_tokens_reasoning": 638,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "usage": 0.0022797,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "b9b095f0-6448-46bb-8e4c-0111ba2bf1b0",
+          "is_byok": false,
+          "latency": 5118,
+          "model_permaslug": "google/gemini-2.5-flash",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773677541-03u7nhsYQn4uxnwlxCwV",
+      "upstream_id": null,
+      "total_cost": 0.0022797,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

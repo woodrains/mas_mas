@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/115",
+  "task_type": "humaneval",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef max_fill(grid, capacity):\n    import math\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773668195-l2D3Hi3y9DwyGFLa2dR0",
+  "response_text": "import math\n\ndef max_fill(grid, capacity):\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n    total_lowerings = 0\n    \n    for well_row in grid:\n        water_in_well = sum(well_row)\n        \n        if water_in_well > 0:\n            # Calculate how many times the bucket needs to be lowered for this well\n            # Use math.ceil to round up, as even a partial bucket requires one lowering\n            lowerings_for_this_well = math.ceil(water_in_well / capacity)\n            total_lowerings += lowerings_for_this_well\n            \n    return total_lowerings",
+  "usage": {
+    "prompt_tokens": 421,
+    "completion_tokens": 1169,
+    "total_tokens": 1590
+  },
+  "latency_ms": 9379,
+  "cost_usd": 0.0030488,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0030488,
+  "raw_response": {
+    "id": "gen-1773668195-l2D3Hi3y9DwyGFLa2dR0",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "import math\n\ndef max_fill(grid, capacity):\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n    total_lowerings = 0\n    \n    for well_row in grid:\n        water_in_well = sum(well_row)\n        \n        if water_in_well > 0:\n            # Calculate how many times the bucket needs to be lowered for this well\n            # Use math.ceil to round up, as even a partial bucket requires one lowering\n            lowerings_for_this_well = math.ceil(water_in_well / capacity)\n            total_lowerings += lowerings_for_this_well\n            \n    return total_lowerings",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773668195,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 1169,
+      "prompt_tokens": 421,
+      "total_tokens": 1590,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 693,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0030488,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0030488,
+        "upstream_inference_prompt_cost": 0.0001263,
+        "upstream_inference_completions_cost": 0.0029225
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T13:36:35.563Z",
+      "model": "google/gemini-2.5-flash",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 5650,
+      "moderation_latency": null,
+      "generation_time": 7645,
+      "tokens_prompt": 372,
+      "tokens_completion": 415,
+      "native_tokens_prompt": 421,
+      "native_tokens_completion": 1169,
+      "native_tokens_completion_images": 0,
+      "native_tokens_reasoning": 693,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "usage": 0.0030488,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "b9b095f0-6448-46bb-8e4c-0111ba2bf1b0",
+          "is_byok": false,
+          "latency": 5650,
+          "model_permaslug": "google/gemini-2.5-flash",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773668195-l2D3Hi3y9DwyGFLa2dR0",
+      "upstream_id": null,
+      "total_cost": 0.0030488,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

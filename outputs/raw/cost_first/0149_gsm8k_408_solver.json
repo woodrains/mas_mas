@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_408",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nToby is reading a book that is 45 pages long. It averages 200 words a page. Toby can read at a rate of 300 words per minute. He has to be at the airport in 60 minutes and plans to leave as soon as he finishes the book. It takes 10 minutes to get to the airport. How many minutes early will Toby be?"
+    }
+  ],
+  "request_id": "gen-1773669576-70g5YLQsHGQ9dgXHDvw0",
+  "response_text": "First, calculate the total number of words in the book:  \n45 pages × 200 words/page = 9,000 words.\n\nNext, calculate how long it will take Toby to read 9,000 words at 300 words per minute:  \n9,000 words ÷ 300 words/minute = 30 minutes.\n\nThen, add the 10 minutes it takes to get to the airport:  \n30 minutes (reading) + 10 minutes (travel) = 40 minutes total.\n\nToby has 60 minutes until he needs to be at the airport.  \n60 minutes − 40 minutes = 20 minutes early.\n\nFINAL: 20",
+  "usage": {
+    "prompt_tokens": 180,
+    "completion_tokens": 157,
+    "total_tokens": 337
+  },
+  "latency_ms": 6751,
+  "cost_usd": 2.848e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.848e-05,
+  "raw_response": {
+    "id": "gen-1773669576-70g5YLQsHGQ9dgXHDvw0",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "First, calculate the total number of words in the book:  \n45 pages × 200 words/page = 9,000 words.\n\nNext, calculate how long it will take Toby to read 9,000 words at 300 words per minute:  \n9,000 words ÷ 300 words/minute = 30 minutes.\n\nThen, add the 10 minutes it takes to get to the airport:  \n30 minutes (reading) + 10 minutes (travel) = 40 minutes total.\n\nToby has 60 minutes until he needs to be at the airport.  \n60 minutes − 40 minutes = 20 minutes early.\n\nFINAL: 20",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773669576,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 157,
+      "prompt_tokens": 180,
+      "total_tokens": 337,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.00010726,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00010726,
+        "upstream_inference_prompt_cost": 1.62e-05,
+        "upstream_inference_completions_cost": 9.106e-05
+      }
+    },
+    "provider": "Novita"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

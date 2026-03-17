@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1066",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nThe glee club ordered 20 pizzas and ate 70% of them. The football team ordered twice as many pizzas and ate 80% of them. How many pizzas are left?"
+    }
+  ],
+  "request_id": "gen-1773676283-LgeIOMvQRICJP5iLmAFV",
+  "response_text": "The glee club ordered 20 pizzas.\nThey ate 70% of them: 0.70 * 20 = 14 pizzas.\nPizzas left for the glee club: 20 - 14 = 6 pizzas.\n\nThe football team ordered twice as many pizzas as the glee club: 2 * 20 = 40 pizzas.\nThey ate 80% of them: 0.80 * 40 = 32 pizzas.\nPizzas left for the football team: 40 - 32 = 8 pizzas.\n\nTotal pizzas left: 6 (from glee club) + 8 (from football team) = 14 pizzas.\n\nFINAL: 14",
+  "usage": {
+    "prompt_tokens": 131,
+    "completion_tokens": 482,
+    "total_tokens": 613
+  },
+  "latency_ms": 3841,
+  "cost_usd": 0.0012442999999999998,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0012442999999999998,
+  "raw_response": {
+    "id": "gen-1773676283-LgeIOMvQRICJP5iLmAFV",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "The glee club ordered 20 pizzas.\nThey ate 70% of them: 0.70 * 20 = 14 pizzas.\nPizzas left for the glee club: 20 - 14 = 6 pizzas.\n\nThe football team ordered twice as many pizzas as the glee club: 2 * 20 = 40 pizzas.\nThey ate 80% of them: 0.80 * 40 = 32 pizzas.\nPizzas left for the football team: 40 - 32 = 8 pizzas.\n\nTotal pizzas left: 6 (from glee club) + 8 (from football team) = 14 pizzas.\n\nFINAL: 14",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773676283,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 482,
+      "prompt_tokens": 131,
+      "total_tokens": 613,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 321,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0012443,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0012443,
+        "upstream_inference_prompt_cost": 3.93e-05,
+        "upstream_inference_completions_cost": 0.001205
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

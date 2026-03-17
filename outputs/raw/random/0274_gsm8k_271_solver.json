@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_271",
+  "task_type": "gsm8k",
+  "worker_id": "deepseek_r1",
+  "model": "deepseek/deepseek-r1-0528",
+  "worker_role": "reasoning_specialist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 2048,
+    "reasoning": {
+      "enabled": true,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 2048,
+    "extra_body": {
+      "reasoning": {
+        "enabled": true,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nJohn has 2 houses with 3 bedrooms each.  Each bedroom has 2 windows each.  There are an additional 4 windows in each house not connected to bedrooms.  How many total windows are there between the houses?"
+    }
+  ],
+  "request_id": "gen-1773662196-4GM69reVwOOfEZkvHV4k",
+  "response_text": "FINAL: 20",
+  "usage": {
+    "prompt_tokens": 140,
+    "completion_tokens": 746,
+    "total_tokens": 886
+  },
+  "latency_ms": 27416,
+  "cost_usd": 0.0016668999999999998,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0016668999999999998,
+  "raw_response": {
+    "id": "gen-1773662196-4GM69reVwOOfEZkvHV4k",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "FINAL: 20",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773662196,
+    "model": "deepseek/deepseek-r1-0528",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 746,
+      "prompt_tokens": 140,
+      "total_tokens": 886,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 795,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0019024,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0019024,
+        "upstream_inference_prompt_cost": 0.000112,
+        "upstream_inference_completions_cost": 0.0017904
+      }
+    },
+    "provider": "Nebius"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T11:56:35.759Z",
+      "model": "deepseek/deepseek-r1-0528",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 26362,
+      "moderation_latency": null,
+      "generation_time": 26531,
+      "tokens_prompt": 166,
+      "tokens_completion": 798,
+      "native_tokens_prompt": 140,
+      "native_tokens_completion": 746,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 795,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.0019024,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "5d263135-78cb-4d45-a44e-d52c19da5139",
+          "id": "cmpl-fb7026125c9947cba826e7f7186071c5",
+          "is_byok": false,
+          "latency": 716,
+          "model_permaslug": "deepseek/deepseek-r1-0528",
+          "provider_name": "Nebius",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773662196-4GM69reVwOOfEZkvHV4k",
+      "upstream_id": "cmpl-fb7026125c9947cba826e7f7186071c5",
+      "total_cost": 0.0019024,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Nebius"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

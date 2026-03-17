@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_1163",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nTyrion changes his face mask two times every time he goes out. If he goes out three times a day, how many face masks does he use every 2 days?"
+    }
+  ],
+  "request_id": "gen-1773673112-V4pGdPX6tvcDd4AukPad",
+  "response_text": "Tyrion changes his face mask 2 times every time he goes out.  \nHe goes out 3 times a day.  \nSo, masks used per day = 2 masks per trip × 3 trips per day = 6 masks per day.  \nOver 2 days, he uses 6 masks/day × 2 days = 12 masks.  \n\nFINAL: 12",
+  "usage": {
+    "prompt_tokens": 133,
+    "completion_tokens": 81,
+    "total_tokens": 214
+  },
+  "latency_ms": 3908,
+  "cost_usd": 1.7542999999999998e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 1.7542999999999998e-05,
+  "raw_response": {
+    "id": "gen-1773673112-V4pGdPX6tvcDd4AukPad",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Tyrion changes his face mask 2 times every time he goes out.  \nHe goes out 3 times a day.  \nSo, masks used per day = 2 masks per trip × 3 trips per day = 6 masks per day.  \nOver 2 days, he uses 6 masks/day × 2 days = 12 masks.  \n\nFINAL: 12",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773673112,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 133,
+      "total_tokens": 214,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.14e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.14e-05,
+        "upstream_inference_prompt_cost": 1.33e-05,
+        "upstream_inference_completions_cost": 8.1e-06
+      }
+    },
+    "provider": "WandB"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

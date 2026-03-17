@@ -1,0 +1,5 @@
+method,mean_success,total_cost_usd,avg_latency_ms,vs_random_success_abs,vs_random_success_rel,vs_random_cost_abs,vs_random_cost_rel,vs_random_latency_abs,vs_random_latency_rel,vs_cost_first_success_abs,vs_cost_first_success_rel,vs_cost_first_cost_abs,vs_cost_first_cost_rel,vs_cost_first_latency_abs,vs_cost_first_latency_rel,vs_single_best_success_abs,vs_single_best_success_rel,vs_single_best_cost_abs,vs_single_best_cost_rel,vs_single_best_latency_abs,vs_single_best_latency_rel
+random,0.882,0.9528546999999905,16513.81,,,,,,,,,,,,,,,,,,
+cost_first,0.912,0.014332391,6811.17,,,,,,,,,,,,,,,,,,
+single_best,0.924,0.8562035999999905,4936.222,,,,,,,,,,,,,,,,,,
+ours,0.93,0.5282612739999978,11390.044,0.04800000000000004,0.05442176870748304,0.4245934259999927,0.4456014395479153,5123.766000000001,0.3102715848129536,0.018000000000000016,0.019736842105263174,-0.5139288829999977,-35.857860910995086,-4578.874,-0.6722595383759324,0.006000000000000005,0.006493506493506499,0.32794232599999273,0.3830190926550605,-6453.822,-1.3074416020997435

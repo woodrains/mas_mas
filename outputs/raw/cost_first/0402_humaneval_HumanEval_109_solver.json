@@ -1,0 +1,109 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/109",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\n\ndef move_one_ball(arr):\n    \"\"\"We have an array 'arr' of N integers arr[1], arr[2], ..., arr[N].The\n    numbers in the array will be randomly ordered. Your task is to determine if\n    it is possible to get an array sorted in non-decreasing order by performing \n    the following operation on the given array:\n        You are allowed to perform right shift operation any number of times.\n    \n    One right shift operation means shifting all elements of the array by one\n    position in the right direction. The last element of the array will be moved to\n    the starting position in the array i.e. 0th index. \n\n    If it is possible to obtain the sorted array by performing the above operation\n    then return True else return False.\n    If the given array is empty then return True.\n\n    Note: The given list is guaranteed to have unique elements.\n\n    For Example:\n    \n    move_one_ball([3, 4, 5, 1, 2])==>True\n    Explanation: By performin 2 right shift operations, non-decreasing order can\n                 be achieved for the given array.\n    move_one_ball([3, 5, 4, 1, 2])==>False\n    Explanation:It is not possible to get non-decreasing order for the given\n                array by performing any number of right shift operations.\n                \n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773673792-fP13NtrRZhyO7oIPEGUf",
+  "response_text": "def move_one_ball(arr):\n    if len(arr) == 0:\n        return True\n    \n    sorted_arr = sorted(arr)\n    n = len(arr)\n    \n    for i in range(n):\n        rotated = arr[-i:] + arr[:-i]\n        if rotated == sorted_arr:\n            return True\n            \n    return False",
+  "usage": {
+    "prompt_tokens": 373,
+    "completion_tokens": 67,
+    "total_tokens": 440
+  },
+  "latency_ms": 1813,
+  "cost_usd": 3.3183e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 3.3183e-05,
+  "raw_response": {
+    "id": "gen-1773673792-fP13NtrRZhyO7oIPEGUf",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "def move_one_ball(arr):\n    if len(arr) == 0:\n        return True\n    \n    sorted_arr = sorted(arr)\n    n = len(arr)\n    \n    for i in range(n):\n        rotated = arr[-i:] + arr[:-i]\n        if rotated == sorted_arr:\n            return True\n            \n    return False",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773673792,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 373,
+      "total_tokens": 440,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0001282,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001282,
+        "upstream_inference_prompt_cost": 7.46e-05,
+        "upstream_inference_completions_cost": 5.36e-05
+      }
+    },
+    "provider": "Friendli"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

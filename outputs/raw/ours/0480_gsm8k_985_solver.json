@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_985",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nEdgar eats 18 pretzels a day. If his brother eats 1/2 as many, how many does his brother eat in a week?"
+    }
+  ],
+  "request_id": "gen-1773692849-hVg4wWgBjRYTIXltnH0B",
+  "response_text": "Edgar eats 18 pretzels a day.  \nHis brother eats 1/2 as many, so his brother eats:  \n18 × 1/2 = 9 pretzels per day.\n\nThere are 7 days in a week, so in a week, his brother eats:  \n9 × 7 = 63 pretzels.\n\nFINAL: 63",
+  "usage": {
+    "prompt_tokens": 130,
+    "completion_tokens": 82,
+    "total_tokens": 212
+  },
+  "latency_ms": 4738,
+  "cost_usd": 1.743e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 1.743e-05,
+  "raw_response": {
+    "id": "gen-1773692849-hVg4wWgBjRYTIXltnH0B",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Edgar eats 18 pretzels a day.  \nHis brother eats 1/2 as many, so his brother eats:  \n18 × 1/2 = 9 pretzels per day.\n\nThere are 7 days in a week, so in a week, his brother eats:  \n9 × 7 = 63 pretzels.\n\nFINAL: 63",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773692849,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 130,
+      "total_tokens": 212,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 9.16e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 9.16e-05,
+        "upstream_inference_prompt_cost": 2.6e-05,
+        "upstream_inference_completions_cost": 6.56e-05
+      }
+    },
+    "provider": "Friendli"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T20:27:29.029Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 520,
+      "moderation_latency": null,
+      "generation_time": 4384,
+      "tokens_prompt": 123,
+      "tokens_completion": 60,
+      "native_tokens_prompt": 130,
+      "native_tokens_completion": 82,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 9.16e-05,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "02b90f2a-e684-46b3-808b-eb88e1348e29",
+          "id": "chatcmpl-043c3c86ab92431db8c0a4da8b81d9e1",
+          "is_byok": false,
+          "latency": 517,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Friendli",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773692849-hVg4wWgBjRYTIXltnH0B",
+      "upstream_id": "chatcmpl-043c3c86ab92431db8c0a4da8b81d9e1",
+      "total_cost": 9.16e-05,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Friendli"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

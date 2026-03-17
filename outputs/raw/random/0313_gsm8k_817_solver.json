@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_817",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nPaul needs 63 cupcakes for a birthday party happening on Saturday. He already has 8 chocolate cupcakes and 40 toffee cupcakes. How many more cupcakes should Paul buy?"
+    }
+  ],
+  "request_id": "gen-1773663393-VpeINnvzPUHROM8s3HTL",
+  "response_text": "Let me solve this step by step.\n\n**Given information:**\n- Paul needs 63 cupcakes total\n- He already has 8 chocolate cupcakes\n- He already has 40 toffee cupcakes\n\n**Calculate total cupcakes Paul already has:**\n8 + 40 = 48 cupcakes\n\n**Calculate how many more cupcakes he needs to buy:**\n63 - 48 = 15 cupcakes\n\nFINAL: 15",
+  "usage": {
+    "prompt_tokens": 181,
+    "completion_tokens": 224,
+    "total_tokens": 405
+  },
+  "latency_ms": 3691,
+  "cost_usd": 0.0013009999999999999,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0013009999999999999,
+  "raw_response": {
+    "id": "gen-1773663393-VpeINnvzPUHROM8s3HTL",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Let me solve this step by step.\n\n**Given information:**\n- Paul needs 63 cupcakes total\n- He already has 8 chocolate cupcakes\n- He already has 40 toffee cupcakes\n\n**Calculate total cupcakes Paul already has:**\n8 + 40 = 48 cupcakes\n\n**Calculate how many more cupcakes he needs to buy:**\n63 - 48 = 15 cupcakes\n\nFINAL: 15",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773663393,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 224,
+      "prompt_tokens": 181,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 76,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001301,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001301,
+        "upstream_inference_prompt_cost": 0.000181,
+        "upstream_inference_completions_cost": 0.00112
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T12:16:32.797Z",
+      "model": "anthropic/claude-4.5-haiku-20251001",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 2148,
+      "moderation_latency": 389,
+      "generation_time": 2674,
+      "tokens_prompt": 139,
+      "tokens_completion": 165,
+      "native_tokens_prompt": 181,
+      "native_tokens_completion": 224,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 76,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.001301,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "d000261c-5aeb-47d1-ac87-ad64dbe1cdb6",
+          "id": "13faa2a7-772d-4204-b55b-9bba26bd4260",
+          "is_byok": false,
+          "latency": 1692,
+          "model_permaslug": "anthropic/claude-4.5-haiku-20251001",
+          "provider_name": "Amazon Bedrock",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773663393-VpeINnvzPUHROM8s3HTL",
+      "upstream_id": "13faa2a7-772d-4204-b55b-9bba26bd4260",
+      "total_cost": 0.001301,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Amazon Bedrock"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

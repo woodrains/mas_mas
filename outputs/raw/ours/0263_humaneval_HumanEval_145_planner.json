@@ -1,0 +1,103 @@
+{
+  "stage": "planner",
+  "task_id": "humaneval_HumanEval/145",
+  "task_type": "humaneval",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "You are a concise coding planner.\nOutput only three short sections: Algorithm, Edge Cases, Complexity.\nDo not write final code.\n\nTask:\n\ndef order_by_points(nums):\n    \"\"\"\n    Write a function which sorts the given list of integers\n    in ascending order according to the sum of their digits.\n    Note: if there are several items with similar sum of their digits,\n    order them based on their index in original list.\n\n    For example:\n    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\n    >>> order_by_points([]) == []\n    \"\"\"\n\n"
+    }
+  ],
+  "request_id": "gen-1773687971-DrCy85tUJw4rYyHJyr8n",
+  "response_text": "Algorithm:  \nCalculate the digit sum for each number (ignoring the sign). Sort the numbers primarily by digit sum in ascending order, and secondarily by original index to maintain stability for equal sums.\n\nEdge Cases:  \n- Empty list: return empty list.  \n- Negative numbers: digit sum uses absolute value.  \n- Multiple numbers with same digit sum: preserve original order (stable sort by index).\n\nComplexity:  \nO(n log n) due to sorting, where n is the number of elements. Digit sum computation is O(d) per number, with d being the number of digits.",
+  "usage": {
+    "prompt_tokens": 211,
+    "completion_tokens": 121,
+    "total_tokens": 332
+  },
+  "latency_ms": 4237,
+  "cost_usd": 2.7081e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.7081e-05,
+  "raw_response": {
+    "id": "gen-1773687971-DrCy85tUJw4rYyHJyr8n",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Algorithm:  \nCalculate the digit sum for each number (ignoring the sign). Sort the numbers primarily by digit sum in ascending order, and secondarily by original index to maintain stability for equal sums.\n\nEdge Cases:  \n- Empty list: return empty list.  \n- Negative numbers: digit sum uses absolute value.  \n- Multiple numbers with same digit sum: preserve original order (stable sort by index).\n\nComplexity:  \nO(n log n) due to sorting, where n is the number of elements. Digit sum computation is O(d) per number, with d being the number of digits.",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773687971,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 121,
+      "prompt_tokens": 211,
+      "total_tokens": 332,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 9.37e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 9.37e-05,
+        "upstream_inference_prompt_cost": 2.11e-05,
+        "upstream_inference_completions_cost": 7.26e-05
+      }
+    },
+    "provider": "Parasail"
+  },
+  "generation_stats": null,
+  "planner_prompt": "You are a concise coding planner.\nOutput only three short sections: Algorithm, Edge Cases, Complexity.\nDo not write final code.\n\nTask:\n\ndef order_by_points(nums):\n    \"\"\"\n    Write a function which sorts the given list of integers\n    in ascending order according to the sum of their digits.\n    Note: if there are several items with similar sum of their digits,\n    order them based on their index in original list.\n\n    For example:\n    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\n    >>> order_by_points([]) == []\n    \"\"\"\n\n"
+}

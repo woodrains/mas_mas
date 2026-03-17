@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_304",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nWatson works a 10-hour shift each day, five days a week. He earns $10 per hour and gets a $300 bonus each week if the company performs well. How much money did Watson make in April if the company performed very well for the whole month?"
+    }
+  ],
+  "request_id": "gen-1773675996-B5BzQj1MyrRiPS1P1E9n",
+  "response_text": "Watson's daily earnings:\nWatson works 10 hours a day and earns $10 per hour.\nDaily earnings = 10 hours/day * $10/hour = $100/day.\n\nWatson's weekly earnings from work:\nWatson works 5 days a week.\nWeekly earnings from work = 5 days/week * $100/day = $500/week.\n\nWatson's total weekly earnings (including bonus):\nHe gets a $300 bonus each week because the company performed very well.\nTotal weekly earnings = $500/week + $300/week = $800/week.\n\nNumber of weeks in April:\nApril has 30 days.\nTo find the number of full weeks, we divide 30 by 7:\n30 days / 7 days/week = 4 weeks and 2 days remaining.\nSince the bonus is given \"each week\" and he works \"five days a week\", it's standard to consider 4 full weeks for monthly calculations unless specified otherwise for partial weeks. The problem implies a consistent weekly pay cycle.\n\nTotal earnings for April:\nTotal earnings = Number of weeks * Total weekly earnings\nTotal earnings = 4 weeks * $800/week = $3200.\n\nFINAL: 3200",
+  "usage": {
+    "prompt_tokens": 150,
+    "completion_tokens": 1009,
+    "total_tokens": 1159
+  },
+  "latency_ms": 7759,
+  "cost_usd": 0.0025674999999999995,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0025674999999999995,
+  "raw_response": {
+    "id": "gen-1773675996-B5BzQj1MyrRiPS1P1E9n",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Watson's daily earnings:\nWatson works 10 hours a day and earns $10 per hour.\nDaily earnings = 10 hours/day * $10/hour = $100/day.\n\nWatson's weekly earnings from work:\nWatson works 5 days a week.\nWeekly earnings from work = 5 days/week * $100/day = $500/week.\n\nWatson's total weekly earnings (including bonus):\nHe gets a $300 bonus each week because the company performed very well.\nTotal weekly earnings = $500/week + $300/week = $800/week.\n\nNumber of weeks in April:\nApril has 30 days.\nTo find the number of full weeks, we divide 30 by 7:\n30 days / 7 days/week = 4 weeks and 2 days remaining.\nSince the bonus is given \"each week\" and he works \"five days a week\", it's standard to consider 4 full weeks for monthly calculations unless specified otherwise for partial weeks. The problem implies a consistent weekly pay cycle.\n\nTotal earnings for April:\nTotal earnings = Number of weeks * Total weekly earnings\nTotal earnings = 4 weeks * $800/week = $3200.\n\nFINAL: 3200",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773675996,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 1009,
+      "prompt_tokens": 150,
+      "total_tokens": 1159,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 716,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0025675,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0025675,
+        "upstream_inference_prompt_cost": 4.5e-05,
+        "upstream_inference_completions_cost": 0.0025225
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

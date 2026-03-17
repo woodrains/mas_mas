@@ -1,0 +1,10 @@
+{
+  "trigger_rate": 0.048,
+  "used_count": 24,
+  "used_success": 0.9166666666666666,
+  "used_avg_cost_usd": 0.0018767469166666624,
+  "used_avg_latency_ms": 13628.375,
+  "unused_success": 0.930672268907563,
+  "unused_avg_cost_usd": 0.0010151666974789872,
+  "unused_avg_latency_ms": 11277.186974789916
+}

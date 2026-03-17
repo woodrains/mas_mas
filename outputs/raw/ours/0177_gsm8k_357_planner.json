@@ -1,0 +1,103 @@
+{
+  "stage": "planner",
+  "task_id": "gsm8k_357",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "You are a concise problem planner.\nOutput only a short plan with 3-6 numbered steps.\nDo not solve the problem. Do not give the final answer.\n\nProblem:\nMorgan's dad said that she had $90 budgeted for her birthday party. She wants to make sure she and her friends all get to play one round of mini-golf, have $5 in arcade tokens, and get to ride the go-karts twice. A round of mini-golf is $5. The Go-karts cost $10 a ride. How many friends can she invite?\n"
+    }
+  ],
+  "request_id": "gen-1773685938-4Esr28NFDjzO3UgJdRW1",
+  "response_text": "1. Determine the total cost per person, including mini-golf, arcade tokens, and two go-kart rides.\n2. Add the cost of mini-golf ($5), arcade tokens ($5), and two go-kart rides (2 × $10).\n3. Divide Morgan's total budget ($90) by the cost per person to find how many people can be accommodated.\n4. Subtract 1 from the result to account for Morgan herself, leaving the number of friends she can invite.",
+  "usage": {
+    "prompt_tokens": 186,
+    "completion_tokens": 104,
+    "total_tokens": 290
+  },
+  "latency_ms": 2230,
+  "cost_usd": 2.3605999999999997e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.3605999999999997e-05,
+  "raw_response": {
+    "id": "gen-1773685938-4Esr28NFDjzO3UgJdRW1",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "1. Determine the total cost per person, including mini-golf, arcade tokens, and two go-kart rides.\n2. Add the cost of mini-golf ($5), arcade tokens ($5), and two go-kart rides (2 × $10).\n3. Divide Morgan's total budget ($90) by the cost per person to find how many people can be accommodated.\n4. Subtract 1 from the result to account for Morgan herself, leaving the number of friends she can invite.",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773685938,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 104,
+      "prompt_tokens": 186,
+      "total_tokens": 290,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 2.9e-05,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 2.9e-05,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 1.04e-05
+      }
+    },
+    "provider": "WandB"
+  },
+  "generation_stats": null,
+  "planner_prompt": "You are a concise problem planner.\nOutput only a short plan with 3-6 numbered steps.\nDo not solve the problem. Do not give the final answer.\n\nProblem:\nMorgan's dad said that she had $90 budgeted for her birthday party. She wants to make sure she and her friends all get to play one round of mini-golf, have $5 in arcade tokens, and get to ride the go-karts twice. A round of mini-golf is $5. The Go-karts cost $10 a ride. How many friends can she invite?\n"
+}

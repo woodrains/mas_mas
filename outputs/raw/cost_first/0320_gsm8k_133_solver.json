@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_133",
+  "task_type": "gsm8k",
+  "worker_id": "qwen3_235b",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "worker_role": "low_cost_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 3072,
+    "extra_body": {
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nOn Monday, Walt walked 4 miles. Tuesday, he walked 6 times as many miles as he walked on Monday. His total mileage Monday through Wednesday was 41 miles. How many miles did he walk on Wednesday?"
+    }
+  ],
+  "request_id": "gen-1773672509-yUcxSoOB4So1TEle9J56",
+  "response_text": "On Monday, Walt walked 4 miles.\n\nOn Tuesday, he walked 6 times as many miles as on Monday:  \n6 × 4 = 24 miles.\n\nLet the miles he walked on Wednesday be \\( x \\).\n\nTotal mileage from Monday to Wednesday is 41 miles:  \nMonday + Tuesday + Wednesday = 41  \n4 + 24 + x = 41  \n24 = 41  \n28 + x = 41  \nx = 41  \nx = 13\n\nSo, Walt walked 13 miles on Wednesday.\n\nFINAL: 13",
+  "usage": {
+    "prompt_tokens": 143,
+    "completion_tokens": 127,
+    "total_tokens": 270
+  },
+  "latency_ms": 2474,
+  "cost_usd": 2.2853e-05,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 2.2853e-05,
+  "raw_response": {
+    "id": "gen-1773672509-yUcxSoOB4So1TEle9J56",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "On Monday, Walt walked 4 miles.\n\nOn Tuesday, he walked 6 times as many miles as on Monday:  \n6 × 4 = 24 miles.\n\nLet the miles he walked on Wednesday be \\( x \\).\n\nTotal mileage from Monday to Wednesday is 41 miles:  \nMonday + Tuesday + Wednesday = 41  \n4 + 24 + x = 41  \n24 = 41  \n28 + x = 41  \nx = 41  \nx = 13\n\nSo, Walt walked 13 miles on Wednesday.\n\nFINAL: 13",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null,
+          "reasoning": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773672509,
+    "model": "qwen/qwen3-235b-a22b-07-25",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 127,
+      "prompt_tokens": 143,
+      "total_tokens": 270,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0001302,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001302,
+        "upstream_inference_prompt_cost": 2.86e-05,
+        "upstream_inference_completions_cost": 0.0001016
+      }
+    },
+    "provider": "Friendli"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T14:48:29.255Z",
+      "model": "qwen/qwen3-235b-a22b-07-25",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 475,
+      "moderation_latency": null,
+      "generation_time": 1814,
+      "tokens_prompt": 146,
+      "tokens_completion": 104,
+      "native_tokens_prompt": 143,
+      "native_tokens_completion": 127,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 0,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.0001302,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "02b90f2a-e684-46b3-808b-eb88e1348e29",
+          "id": "chatcmpl-74743cf333394a28a78d949345c210a1",
+          "is_byok": false,
+          "latency": 475,
+          "model_permaslug": "qwen/qwen3-235b-a22b-07-25",
+          "provider_name": "Friendli",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773672509-yUcxSoOB4So1TEle9J56",
+      "upstream_id": "chatcmpl-74743cf333394a28a78d949345c210a1",
+      "total_cost": 0.0001302,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Friendli"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

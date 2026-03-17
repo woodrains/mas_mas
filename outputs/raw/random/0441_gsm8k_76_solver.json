@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_76",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nCecilia just bought a new puppy. According to her veterinarian, she has to feed the puppy 1 cup of dog food every day for the first 180 days. Then she has to feed the puppy 2 cups of dog food every day for the rest of its life. If one bag of dog food contains 110 cups, how many bags of dog food will Cecilia use in the first year?"
+    }
+  ],
+  "request_id": "gen-1773666820-UpIy6HQ68XoJGeQW7xha",
+  "response_text": "**Solution:**\n\nLet me work through this step-by-step.\n\n**First 180 days:**\n- Puppy eats 1 cup per day\n- Total cups for first 180 days = 180 × 1 = 180 cups\n\n**Remaining days in the first year:**\n- Days in a year = 365 days\n- Days remaining after first 180 days = 365 - 180 = 185 days\n\n**Days 181-365:**\n- Puppy eats 2 cups per day\n- Total cups for remaining 185 days = 185 × 2 = 370 cups\n\n**Total cups in first year:**\n- 180 + 370 = 550 cups\n\n**Number of bags needed:**\n- Each bag contains 110 cups\n- Number of bags = 550 ÷ 110 = 5 bags\n\nFINAL: 5",
+  "usage": {
+    "prompt_tokens": 227,
+    "completion_tokens": 443,
+    "total_tokens": 670
+  },
+  "latency_ms": 6308,
+  "cost_usd": 0.0024419999999999997,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0024419999999999997,
+  "raw_response": {
+    "id": "gen-1773666820-UpIy6HQ68XoJGeQW7xha",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Solution:**\n\nLet me work through this step-by-step.\n\n**First 180 days:**\n- Puppy eats 1 cup per day\n- Total cups for first 180 days = 180 × 1 = 180 cups\n\n**Remaining days in the first year:**\n- Days in a year = 365 days\n- Days remaining after first 180 days = 365 - 180 = 185 days\n\n**Days 181-365:**\n- Puppy eats 2 cups per day\n- Total cups for remaining 185 days = 185 × 2 = 370 cups\n\n**Total cups in first year:**\n- 180 + 370 = 550 cups\n\n**Number of bags needed:**\n- Each bag contains 110 cups\n- Number of bags = 550 ÷ 110 = 5 bags\n\nFINAL: 5",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773666820,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 443,
+      "prompt_tokens": 227,
+      "total_tokens": 670,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 177,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.002442,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.002442,
+        "upstream_inference_prompt_cost": 0.000227,
+        "upstream_inference_completions_cost": 0.002215
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

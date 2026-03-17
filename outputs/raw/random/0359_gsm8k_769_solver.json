@@ -1,0 +1,158 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_769",
+  "task_type": "gsm8k",
+  "worker_id": "gemini25flash",
+  "model": "google/gemini-2.5-flash",
+  "worker_role": "long_context_workhorse",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "effort": "low",
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "effort": "low",
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nTanya is teaching at school. She earns $15 for every hour and an additional $5 per day if she teaches more than 3 classes. On Monday she teaches 4 classes for 5 hours, and on Wednesday 2 classes for 2 hours. How much did Tanya earn for these two days of teaching?"
+    }
+  ],
+  "request_id": "gen-1773664727-F5a0Y4Ii2ds17IP8nvx9",
+  "response_text": "Tanya's earnings for Monday:\nHourly earnings: 5 hours * $15/hour = $75\nClasses taught: 4 classes. Since 4 is more than 3, she gets the additional $5 bonus.\nTotal for Monday: $75 + $5 = $80\n\nTanya's earnings for Wednesday:\nHourly earnings: 2 hours * $15/hour = $30\nClasses taught: 2 classes. Since 2 is not more than 3, she does not get the additional $5 bonus.\nTotal for Wednesday: $30 + $0 = $30\n\nTotal earnings for both days:\n$80 (Monday) + $30 (Wednesday) = $110\n\nFINAL: 110",
+  "usage": {
+    "prompt_tokens": 157,
+    "completion_tokens": 482,
+    "total_tokens": 639
+  },
+  "latency_ms": 4058,
+  "cost_usd": 0.0012521,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.0012521,
+  "raw_response": {
+    "id": "gen-1773664727-F5a0Y4Ii2ds17IP8nvx9",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Tanya's earnings for Monday:\nHourly earnings: 5 hours * $15/hour = $75\nClasses taught: 4 classes. Since 4 is more than 3, she gets the additional $5 bonus.\nTotal for Monday: $75 + $5 = $80\n\nTanya's earnings for Wednesday:\nHourly earnings: 2 hours * $15/hour = $30\nClasses taught: 2 classes. Since 2 is not more than 3, she does not get the additional $5 bonus.\nTotal for Wednesday: $30 + $0 = $30\n\nTotal earnings for both days:\n$80 (Monday) + $30 (Wednesday) = $110\n\nFINAL: 110",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "STOP"
+      }
+    ],
+    "created": 1773664727,
+    "model": "google/gemini-2.5-flash",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 482,
+      "prompt_tokens": 157,
+      "total_tokens": 639,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 315,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.0012521,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0012521,
+        "upstream_inference_prompt_cost": 4.71e-05,
+        "upstream_inference_completions_cost": 0.001205
+      }
+    },
+    "provider": "Google"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T12:38:47.635Z",
+      "model": "google/gemini-2.5-flash",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 2997,
+      "moderation_latency": null,
+      "generation_time": 3709,
+      "tokens_prompt": 163,
+      "tokens_completion": 129,
+      "native_tokens_prompt": 157,
+      "native_tokens_completion": 482,
+      "native_tokens_completion_images": 0,
+      "native_tokens_reasoning": 315,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "usage": 0.0012521,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "b9b095f0-6448-46bb-8e4c-0111ba2bf1b0",
+          "is_byok": false,
+          "latency": 2995,
+          "model_permaslug": "google/gemini-2.5-flash",
+          "provider_name": "Google",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773664727-F5a0Y4Ii2ds17IP8nvx9",
+      "upstream_id": null,
+      "total_cost": 0.0012521,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Google"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

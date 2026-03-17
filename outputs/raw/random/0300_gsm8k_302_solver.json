@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_302",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nAnnika brought $50 to the town fair. She spent half of it on food and snacks, and an additional $10 for rides. How much, in dollars, is left?"
+    }
+  ],
+  "request_id": "gen-1773662990-2iz8nyx40yRjENvMu5yM",
+  "response_text": "Let me work through this step-by-step.\n\nStarting amount: $50\n\nMoney spent on food and snacks: half of $50 = $25\n\nMoney spent on rides: $10\n\nTotal spent: $25 + $10 = $35\n\nMoney left: $50 - $35 = $15\n\nFINAL: 15",
+  "usage": {
+    "prompt_tokens": 175,
+    "completion_tokens": 196,
+    "total_tokens": 371
+  },
+  "latency_ms": 3288,
+  "cost_usd": 0.001155,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.001155,
+  "raw_response": {
+    "id": "gen-1773662990-2iz8nyx40yRjENvMu5yM",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Let me work through this step-by-step.\n\nStarting amount: $50\n\nMoney spent on food and snacks: half of $50 = $25\n\nMoney spent on rides: $10\n\nTotal spent: $25 + $10 = $35\n\nMoney left: $50 - $35 = $15\n\nFINAL: 15",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773662990,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 175,
+      "total_tokens": 371,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 86,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.001155,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001155,
+        "upstream_inference_prompt_cost": 0.000175,
+        "upstream_inference_completions_cost": 0.00098
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

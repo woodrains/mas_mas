@@ -1,0 +1,110 @@
+{
+  "stage": "solver",
+  "task_id": "gsm8k_773",
+  "task_type": "gsm8k",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Solve the following math word problem.\nYou may reason internally, but the last line must be exactly `FINAL: <number>`.\n\nQuestion:\nAnthony had 50 pencils. He gave 1/2 of his pencils to Brandon, and he gave 3/5 of the remaining pencils to Charlie. He kept the remaining pencils. How many pencils did Anthony keep?"
+    }
+  ],
+  "request_id": "gen-1773683588-MmRQ8Im3nZ041xRM4DZh",
+  "response_text": "**Solution:**\n\nStarting amount: 50 pencils\n\n**Step 1: Pencils given to Brandon**\n- Brandon received 1/2 of 50\n- 1/2 × 50 = 25 pencils to Brandon\n- Remaining: 50 - 25 = 25 pencils\n\n**Step 2: Pencils given to Charlie**\n- Charlie received 3/5 of the remaining 25 pencils\n- 3/5 × 25 = 15 pencils to Charlie\n- Remaining: 25 - 15 = 10 pencils\n\n**Step 3: Pencils Anthony kept**\n- Anthony kept the remaining 10 pencils\n\nFINAL: 10",
+  "usage": {
+    "prompt_tokens": 187,
+    "completion_tokens": 364,
+    "total_tokens": 551
+  },
+  "latency_ms": 6183,
+  "cost_usd": 0.002007,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.002007,
+  "raw_response": {
+    "id": "gen-1773683588-MmRQ8Im3nZ041xRM4DZh",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "**Solution:**\n\nStarting amount: 50 pencils\n\n**Step 1: Pencils given to Brandon**\n- Brandon received 1/2 of 50\n- 1/2 × 50 = 25 pencils to Brandon\n- Remaining: 50 - 25 = 25 pencils\n\n**Step 2: Pencils given to Charlie**\n- Charlie received 3/5 of the remaining 25 pencils\n- 3/5 × 25 = 15 pencils to Charlie\n- Remaining: 25 - 15 = 10 pencils\n\n**Step 3: Pencils Anthony kept**\n- Anthony kept the remaining 10 pencils\n\nFINAL: 10",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773683588,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 364,
+      "prompt_tokens": 187,
+      "total_tokens": 551,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 132,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.002007,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.002007,
+        "upstream_inference_prompt_cost": 0.000187,
+        "upstream_inference_completions_cost": 0.00182
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": null,
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}

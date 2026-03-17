@@ -1,0 +1,159 @@
+{
+  "stage": "solver",
+  "task_id": "humaneval_HumanEval/22",
+  "task_type": "humaneval",
+  "worker_id": "haiku45",
+  "model": "anthropic/claude-haiku-4.5",
+  "worker_role": "high_quality_generalist",
+  "worker_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "reasoning": {
+      "max_tokens": 1536,
+      "exclude": true
+    }
+  },
+  "request_params": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "extra_body": {
+      "reasoning": {
+        "max_tokens": 1536,
+        "exclude": true
+      }
+    }
+  },
+  "request_adjustments": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful problem solver.\nRules:\n1. For GSM8K, the final line must be exactly `FINAL: <number>`.\n2. For HumanEval, output only raw Python code with no markdown and no explanation.\n3. Do not mention hidden reasoning.\n"
+    },
+    {
+      "role": "user",
+      "content": "Complete the following Python function.\nOutput only valid Python code.\n\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n"
+    }
+  ],
+  "request_id": "gen-1773664610-xF24GvkXbSvhoIFtS4YN",
+  "response_text": "```python\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [x for x in values if isinstance(x, int) and not isinstance(x, bool)]\n```",
+  "usage": {
+    "prompt_tokens": 210,
+    "completion_tokens": 579,
+    "total_tokens": 789
+  },
+  "latency_ms": 4884,
+  "cost_usd": 0.003105,
+  "cost_source": "usage_estimate",
+  "cost_exact_usd": null,
+  "cost_fallback_usd": 0.003105,
+  "raw_response": {
+    "id": "gen-1773664610-xF24GvkXbSvhoIFtS4YN",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "```python\nfrom typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [x for x in values if isinstance(x, int) and not isinstance(x, bool)]\n```",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "native_finish_reason": "stop"
+      }
+    ],
+    "created": 1773664610,
+    "model": "anthropic/claude-4.5-haiku-20251001",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 579,
+      "prompt_tokens": 210,
+      "total_tokens": 789,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": 0,
+        "reasoning_tokens": 362,
+        "rejected_prediction_tokens": null,
+        "image_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost": 0.003105,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.003105,
+        "upstream_inference_prompt_cost": 0.00021,
+        "upstream_inference_completions_cost": 0.002895
+      }
+    },
+    "provider": "Amazon Bedrock"
+  },
+  "generation_stats": {
+    "data": {
+      "created_at": "2026-03-16T12:36:50.695Z",
+      "model": "anthropic/claude-4.5-haiku-20251001",
+      "app_id": null,
+      "external_user": null,
+      "streamed": true,
+      "cancelled": false,
+      "latency": 3470,
+      "moderation_latency": 358,
+      "generation_time": 3875,
+      "tokens_prompt": 157,
+      "tokens_completion": 462,
+      "native_tokens_prompt": 210,
+      "native_tokens_completion": 579,
+      "native_tokens_completion_images": null,
+      "native_tokens_reasoning": 362,
+      "native_tokens_cached": 0,
+      "num_media_prompt": null,
+      "num_input_audio_prompt": null,
+      "num_media_completion": 0,
+      "num_search_results": null,
+      "origin": "http://localhost/",
+      "is_byok": false,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": 0.003105,
+      "router": null,
+      "provider_responses": [
+        {
+          "endpoint_id": "d000261c-5aeb-47d1-ac87-ad64dbe1cdb6",
+          "id": "12ae0ac6-a56f-43a2-b326-2db9ba378045",
+          "is_byok": false,
+          "latency": 1406,
+          "model_permaslug": "anthropic/claude-4.5-haiku-20251001",
+          "provider_name": "Amazon Bedrock",
+          "status": 200
+        }
+      ],
+      "user_agent": "OpenAI/Python 2.28.0",
+      "http_referer": null,
+      "api_type": "completions",
+      "id": "gen-1773664610-xF24GvkXbSvhoIFtS4YN",
+      "upstream_id": "12ae0ac6-a56f-43a2-b326-2db9ba378045",
+      "total_cost": 0.003105,
+      "cache_discount": null,
+      "upstream_inference_cost": 0,
+      "provider_name": "Amazon Bedrock"
+    }
+  },
+  "decomp_used": false,
+  "planner_raw_output_path": "",
+  "evaluation": {
+    "success": true,
+    "failure_reason": "ok",
+    "format_ok": true
+  }
+}
